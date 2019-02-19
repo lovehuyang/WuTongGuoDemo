@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55F1BD8779A723D523597C94 /* libPods-wutongguo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61085453FFFDBC797A822A27 /* libPods-wutongguo.a */; };
 		990EEF001C429054002D01C3 /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990EEEFF1C429054002D01C3 /* CompanyViewController.m */; };
 		990EEF031C4290A3002D01C3 /* CpBrochureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990EEF021C4290A3002D01C3 /* CpBrochureViewController.m */; };
 		990EEF081C4291D9002D01C3 /* CpJobDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 990EEF051C4291D9002D01C3 /* CpJobDetailViewController.m */; };
@@ -379,6 +380,7 @@
 		99F9FE211B032C0B00459DC2 /* coMascot.png in Resources */ = {isa = PBXBuildFile; fileRef = 99F9FE201B032C0B00459DC2 /* coMascot.png */; };
 		99FB0C7F1D010A840029795F /* ico_location_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 99FB0C7E1D010A840029795F /* ico_location_green.png */; };
 		99FE93821B50EF5B00C28F55 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FE93811B50EF5B00C28F55 /* VideoViewController.m */; };
+		F36FAA2EFEEBF84085A64897 /* libPods-wutongguoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29811AAAEBA12CB7FFA497EC /* libPods-wutongguoTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,6 +394,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13466DEE428B230D65782661 /* Pods-wutongguoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wutongguoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wutongguoTests/Pods-wutongguoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29811AAAEBA12CB7FFA497EC /* libPods-wutongguoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wutongguoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		520EB09CAB089227C205674A /* Pods-wutongguoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wutongguoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wutongguoTests/Pods-wutongguoTests.release.xcconfig"; sourceTree = "<group>"; };
+		5355BA5EB6F4A53491E7C4CD /* Pods-wutongguo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wutongguo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo.debug.xcconfig"; sourceTree = "<group>"; };
+		61085453FFFDBC797A822A27 /* libPods-wutongguo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wutongguo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		990EEEFE1C429054002D01C3 /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		990EEEFF1C429054002D01C3 /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		990EEF011C4290A3002D01C3 /* CpBrochureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CpBrochureViewController.h; sourceTree = "<group>"; };
@@ -915,6 +922,7 @@
 		99FB0C7E1D010A840029795F /* ico_location_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_location_green.png; sourceTree = "<group>"; };
 		99FE93801B50EF5B00C28F55 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		99FE93811B50EF5B00C28F55 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		BDD6ACFE994F2CCA50ABEEA0 /* Pods-wutongguo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wutongguo.release.xcconfig"; path = "Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -962,6 +970,7 @@
 				990EEF351C433CB6002D01C3 /* ShareSDKExtension.framework in Frameworks */,
 				99D3C5CD1B0730D7003E4594 /* CoreText.framework in Frameworks */,
 				990EEF311C433CB5002D01C3 /* MOBFoundation.framework in Frameworks */,
+				55F1BD8779A723D523597C94 /* libPods-wutongguo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -969,12 +978,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F36FAA2EFEEBF84085A64897 /* libPods-wutongguoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D6357917BB5DF8C6F95A128 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61085453FFFDBC797A822A27 /* libPods-wutongguo.a */,
+				29811AAAEBA12CB7FFA497EC /* libPods-wutongguoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		990EEF0A1C433CB5002D01C3 /* ShareSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,6 +1242,8 @@
 				995BB2511AF7613E0047C971 /* wutongguo */,
 				995BB26E1AF7613F0047C971 /* wutongguoTests */,
 				995BB2501AF7613E0047C971 /* Products */,
+				D3580DBDFC00652C3EC4EAFF /* Pods */,
+				7D6357917BB5DF8C6F95A128 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1776,6 +1797,17 @@
 			name = List;
 			sourceTree = "<group>";
 		};
+		D3580DBDFC00652C3EC4EAFF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5355BA5EB6F4A53491E7C4CD /* Pods-wutongguo.debug.xcconfig */,
+				BDD6ACFE994F2CCA50ABEEA0 /* Pods-wutongguo.release.xcconfig */,
+				13466DEE428B230D65782661 /* Pods-wutongguoTests.debug.xcconfig */,
+				520EB09CAB089227C205674A /* Pods-wutongguoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1783,6 +1815,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 995BB2751AF7613F0047C971 /* Build configuration list for PBXNativeTarget "wutongguo" */;
 			buildPhases = (
+				086A3CC8DDD8B542A5A41A4E /* [CP] Check Pods Manifest.lock */,
 				995BB24B1AF7613E0047C971 /* Sources */,
 				995BB24C1AF7613E0047C971 /* Frameworks */,
 				995BB24D1AF7613E0047C971 /* Resources */,
@@ -1800,6 +1833,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 995BB2781AF7613F0047C971 /* Build configuration list for PBXNativeTarget "wutongguoTests" */;
 			buildPhases = (
+				47FC723EE26071838C22422A /* [CP] Check Pods Manifest.lock */,
 				995BB2671AF7613F0047C971 /* Sources */,
 				995BB2681AF7613F0047C971 /* Frameworks */,
 				995BB2691AF7613F0047C971 /* Resources */,
@@ -2086,6 +2120,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		086A3CC8DDD8B542A5A41A4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wutongguo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47FC723EE26071838C22422A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-wutongguoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		995BB24B1AF7613E0047C971 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -2337,6 +2418,7 @@
 		};
 		995BB2761AF7613F0047C971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5355BA5EB6F4A53491E7C4CD /* Pods-wutongguo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wutongguo/wutongguo.entitlements;
@@ -2380,6 +2462,7 @@
 		};
 		995BB2771AF7613F0047C971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDD6ACFE994F2CCA50ABEEA0 /* Pods-wutongguo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = wutongguo/wutongguo.entitlements;
@@ -2423,6 +2506,7 @@
 		};
 		995BB2791AF7613F0047C971 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13466DEE428B230D65782661 /* Pods-wutongguoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2443,6 +2527,7 @@
 		};
 		995BB27A1AF7613F0047C971 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 520EB09CAB089227C205674A /* Pods-wutongguoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
