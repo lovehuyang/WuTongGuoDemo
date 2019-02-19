@@ -889,6 +889,7 @@
 		99D21F2A1B4F9B7C00D814E5 /* coPractice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coPractice.png; sourceTree = "<group>"; };
 		99D21F2C1B4FD7C100D814E5 /* coNotPass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coNotPass.png; sourceTree = "<group>"; };
 		99D21F301B50C60700D814E5 /* coCampus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coCampus.png; sourceTree = "<group>"; };
+		99D34352221B8B0700A9A660 /* wutongguo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wutongguo.pch; sourceTree = "<group>"; };
 		99D3C5CC1B0730D7003E4594 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		99D5176E1D2509A100E37491 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -1267,6 +1268,7 @@
 				998175191B1B008800BDB47A /* UserCenter */,
 				995BB2561AF7613E0047C971 /* AppDelegate.h */,
 				995BB2571AF7613E0047C971 /* AppDelegate.m */,
+				99D34352221B8B0700A9A660 /* wutongguo.pch */,
 				995BB2621AF7613E0047C971 /* Images.xcassets */,
 				995BB2641AF7613E0047C971 /* LaunchScreen.xib */,
 				995BB2591AF7613E0047C971 /* wutongguo.xcdatamodeld */,
@@ -2126,15 +2128,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-wutongguo-checkManifestLockResult.txt",
 			);
@@ -2148,15 +2146,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-wutongguoTests-checkManifestLockResult.txt",
 			);
@@ -2435,6 +2429,8 @@
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/SinaWeiboSDK",
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/WeChatSDK",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/wutongguo/wutongguo.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -2479,6 +2475,8 @@
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/SinaWeiboSDK",
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/WeChatSDK",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/wutongguo/wutongguo.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
