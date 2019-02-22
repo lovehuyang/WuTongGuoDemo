@@ -72,7 +72,9 @@
     UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     [btnSearch setBackgroundImage:[UIImage imageNamed:@"coSearch.png"] forState:UIControlStateNormal];
     [btnSearch addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
+    UIView *containerView = [[UIView alloc]initWithFrame:btnSearch.frame];
+    [containerView addSubview:btnSearch];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:containerView];
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
 }

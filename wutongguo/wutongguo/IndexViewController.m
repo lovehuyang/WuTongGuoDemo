@@ -4,7 +4,7 @@
 //
 //  Created by Lucifer on 15-5-4.
 //  Copyright (c) 2015年 Lucifer. All rights reserved.
-//
+//  首页页面
 
 #import "IndexViewController.h"
 #import "JobListViewController.h"
@@ -53,7 +53,10 @@
     //导航栏 左边
     UIImageView *imgLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 85, 23)];
     [imgLogo setImage:[UIImage imageNamed:@"logo.png"]];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:imgLogo];
+    UIView *tempView = [[UIView alloc]initWithFrame:imgLogo.frame];
+    [tempView addSubview:imgLogo];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tempView];
     //中间
     UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 200, 30)];
     [btnSearch setBackgroundColor:[UIColor whiteColor]];
@@ -62,7 +65,7 @@
     UIImageView *imgSearch = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 20, 20)];
     [imgSearch setImage:[UIImage imageNamed:@"ico_index_search.png"]];
     [btnSearch addSubview:imgSearch];
-    CustomLabel *lbSearch = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(VIEW_BX(imgSearch) + 5, 0, VIEW_W(btnSearch) - VIEW_BX(imgSearch) - 5, VIEW_H(btnSearch)) content:@"最新校园招聘" size:14 color:TEXTGRAYCOLOR];
+    CustomLabel *lbSearch = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(VIEW_BX(imgSearch) + 5, 0, VIEW_W(btnSearch) - VIEW_BX(imgSearch) - 5, VIEW_H(btnSearch)) content:@"最新校园招聘" size:12 color:TEXTGRAYCOLOR];
     [btnSearch addSubview:lbSearch];
     self.navigationItem.titleView = btnSearch;
     //右边

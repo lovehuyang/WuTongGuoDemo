@@ -24,13 +24,14 @@
 #import "MobileCerViewController.h"
 #import "UIImageView+WebCache.h"
 #import "CvModifyViewController.h"
+#import "MyTalentsTestController.h"
 
 @interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource, NetWebServiceRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MLImageCropDelegate>
 
 @property (nonatomic, strong) NetWebServiceRequest *runningRequest;
 @property (nonatomic, strong) LoadingAnimationView *loadingView;
-@property (nonatomic) NSInteger iIndex;
 @property (nonatomic, strong) NSArray *arrTitle;
+@property (nonatomic, strong) NSArray *titleImgArr;
 @property (nonatomic, strong) UIView *titleView;
 @property (nonatomic, strong) UIButton *btnPhoto;
 @end
@@ -43,8 +44,9 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
-    self.iIndex = 1;
-    self.arrTitle = @[@"简历管理", @"网申记录", @"企业通知", @"我的关注", @"网站消息", @"账户管理", @"我要反馈", @"应用分享"];
+
+    self.arrTitle = @[@[ @"简历管理", @"网申记录", @"企业通知", @"我的关注"], @[@"网站消息", @"账户管理", @"我的测评",@"我要反馈", @"应用分享"]];
+    self.titleImgArr = @[@[ @"ucButton1", @"ucButton2", @"ucButton3", @"ucButton4"], @[@"ucButton5", @"ucButton6", @"ucButton9" ,@"ucButton7", @"ucButton8"]];
     //头部的视图
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     [self.titleView setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"ucIndexBg.png"]]];
@@ -281,20 +283,22 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    NSArray *sectionArr = self.arrTitle[section];
+    return sectionArr.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.arrTitle.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellView" forIndexPath:indexPath];
     UIImageView *imgButton = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 25, 25)];
-    [imgButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"ucButton%ld.png", (long)self.iIndex]]];
+    [imgButton setImage:[UIImage imageNamed:self.titleImgArr[indexPath.section][indexPath.row]]];
     [cell.contentView addSubview:imgButton];
     
-    CustomLabel *lbTitle = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(VIEW_BX(imgButton) + 10, VIEW_Y(imgButton) + 3, 100, 20) content:self.arrTitle[self.iIndex - 1] size:14 color:nil];
+    NSString *title = self.arrTitle[indexPath.section][indexPath.row];
+    CustomLabel *lbTitle = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(VIEW_BX(imgButton) + 10, VIEW_Y(imgButton) + 3, 100, 20) content:title size:14 color:nil];
     [cell.contentView addSubview:lbTitle];
     
     UIImageView *imgArrow = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 30, 15, 8, 15)];
@@ -303,57 +307,71 @@
     //if (indexPath.row != 3 && indexPath.row != 7) {
         [cell.contentView addSubview:[[CustomLabel alloc] initSeparate:cell.contentView]];
     //}
-    self.iIndex = self.iIndex + 1;
+//    self.iIndex = self.iIndex + 1;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1 && indexPath.row == 2) {
-        UIViewController *feedbackCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"feedbackView"];
-        [self.navigationController pushViewController:feedbackCtrl animated:YES];
-        return;
+    
+    if(indexPath.section == 1){
+        
+        if (indexPath.row == 3) {// 我要反馈
+            UIViewController *feedbackCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"feedbackView"];
+            [self.navigationController pushViewController:feedbackCtrl animated:YES];
+            return;
+        }
+        if (indexPath.row == 4) {// 应用分享
+            self.runningRequest = [NetWebServiceRequest serviceRequestUrl:@"GetShareTitle" params:[NSDictionary dictionaryWithObjectsAndKeys:@"212", @"pageID", @"", @"id", nil] tag:3];
+            [self.runningRequest setDelegate:self];
+            [self.runningRequest startAsynchronous];
+        }
     }
-    if (indexPath.section == 1 && indexPath.row == 3) {
-        self.runningRequest = [NetWebServiceRequest serviceRequestUrl:@"GetShareTitle" params:[NSDictionary dictionaryWithObjectsAndKeys:@"212", @"pageID", @"", @"id", nil] tag:3];
-        [self.runningRequest setDelegate:self];
-        [self.runningRequest startAsynchronous];
-    }
+    
+    
     if (![self isLogin]) {
         return;
     }
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        CvModifyViewController *cvModifyCtrl = [[CvModifyViewController alloc] init];
-        [self.navigationController pushViewController:cvModifyCtrl animated:YES];
-    }
-    else if (indexPath.section == 0 && indexPath.row == 1) {
-        ApplyLogViewController *applyLogCtrl = [[ApplyLogViewController alloc] init];
-        [self.navigationController pushViewController:applyLogCtrl animated:YES];
-    }
-    else if (indexPath.section == 0 && indexPath.row == 2) {
-        CompanyNoticeViewController *companyNoticeCtrl = [[CompanyNoticeViewController alloc] init];
-        [self.navigationController pushViewController:companyNoticeCtrl animated:YES];
-    }
-    else if (indexPath.section == 0 && indexPath.row == 3) {
-        FocusViewController *focusCtrl = [[FocusViewController alloc] init];
-        [self.navigationController pushViewController:focusCtrl animated:YES];
-    }
-    else if (indexPath.section == 1 && indexPath.row == 0) {
-        InformViewController *informCtrl = [[InformViewController alloc] init];
-        [self.navigationController pushViewController:informCtrl animated:YES];
-    }
-    else if (indexPath.section == 1 && indexPath.row == 1) {
-        AccountManagerViewController *accountManagerCtrl = [[AccountManagerViewController alloc] init];
-        [self.navigationController pushViewController:accountManagerCtrl animated:YES];
+    
+    if(indexPath.section == 0){
+        if (indexPath.row == 0) {// 简历管理
+            CvModifyViewController *cvModifyCtrl = [[CvModifyViewController alloc] init];
+            [self.navigationController pushViewController:cvModifyCtrl animated:YES];
+        }
+        else if ( indexPath.row == 1) {// 网申记录
+            ApplyLogViewController *applyLogCtrl = [[ApplyLogViewController alloc] init];
+            [self.navigationController pushViewController:applyLogCtrl animated:YES];
+        }
+        else if (indexPath.row == 2) {// 企业通知
+            CompanyNoticeViewController *companyNoticeCtrl = [[CompanyNoticeViewController alloc] init];
+            [self.navigationController pushViewController:companyNoticeCtrl animated:YES];
+        }
+        else if (indexPath.row == 3) {// 我的关注
+            FocusViewController *focusCtrl = [[FocusViewController alloc] init];
+            [self.navigationController pushViewController:focusCtrl animated:YES];
+        }
+    }else if (indexPath.section == 1){
+     
+        if (indexPath.row == 0) {// 网站消息
+            InformViewController *informCtrl = [[InformViewController alloc] init];
+            [self.navigationController pushViewController:informCtrl animated:YES];
+        }
+        else if (indexPath.row == 1) {// 账户管理
+            AccountManagerViewController *accountManagerCtrl = [[AccountManagerViewController alloc] init];
+            [self.navigationController pushViewController:accountManagerCtrl animated:YES];
+        }else if(indexPath.row == 2){// 我的测评
+            MyTalentsTestController *mvc = [[MyTalentsTestController alloc]init];
+            [self.navigationController pushViewController:mvc animated:YES];
+        }
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 46;
+    return 42;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 10;
+    return 8;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

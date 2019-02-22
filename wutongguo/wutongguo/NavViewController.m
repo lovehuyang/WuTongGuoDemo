@@ -12,6 +12,7 @@
 #import "Toast+UIView.h"
 #import "NetWebServiceRequest.h"
 #import "JPUSHService.h"
+#import "MyTalentsTestController.h"
 
 @interface NavViewController ()<NetWebServiceRequestDelegate>
 
@@ -50,14 +51,19 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if(navigationController.viewControllers.count > 1) {
-        UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-back.png"] style:UIBarButtonItemStyleDone target:self action:@selector(popViewControllerAnimated:)];
-        viewController.navigationItem.leftBarButtonItem = leftBarItem;
-    }
     viewController.view.backgroundColor = BGCOLOR;
     if ([[USER_DEFAULT objectForKey:@"willBind"] isEqualToString:@"1"]) {
         [USER_DEFAULT removeObjectForKey:@"willBind"];
         [self bindPush];
+    }
+    
+    if ([viewController isKindOfClass:[MyTalentsTestController class]]) {
+        return;
+    }
+    
+    if(navigationController.viewControllers.count > 1) {
+        UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-back.png"] style:UIBarButtonItemStyleDone target:self action:@selector(popViewControllerAnimated:)];
+        viewController.navigationItem.leftBarButtonItem = leftBarItem;
     }
 }
 

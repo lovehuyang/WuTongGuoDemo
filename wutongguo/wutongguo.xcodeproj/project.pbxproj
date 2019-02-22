@@ -251,6 +251,8 @@
 		998194E01B229A4800468B38 /* yindaonavhigh.png in Resources */ = {isa = PBXBuildFile; fileRef = 998194DE1B229A4800468B38 /* yindaonavhigh.png */; };
 		998194E21B22C46900468B38 /* coMapClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 998194E11B22C46900468B38 /* coMapClose.png */; };
 		998354B91E7A14F500C3CAD2 /* MajorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998354B81E7A14F500C3CAD2 /* MajorSearchViewController.m */; };
+		99882AC3221D3537002152AA /* MyTalentsTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99882AC2221D3537002152AA /* MyTalentsTestController.m */; };
+		99882AC6221D388A002152AA /* CommonToos.m in Sources */ = {isa = PBXBuildFile; fileRef = 99882AC5221D388A002152AA /* CommonToos.m */; };
 		998D16A31B01AA4A0079EAC6 /* coDownArrowCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 998D16A11B01AA4A0079EAC6 /* coDownArrowCircle.png */; };
 		998D16A41B01AA4A0079EAC6 /* coUpArrowCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 998D16A21B01AA4A0079EAC6 /* coUpArrowCircle.png */; };
 		998D16AC1B01F85A0079EAC6 /* applyUpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 998D16AB1B01F85A0079EAC6 /* applyUpArrow.png */; };
@@ -353,6 +355,7 @@
 		99D21F2B1B4F9B7C00D814E5 /* coPractice.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D21F2A1B4F9B7C00D814E5 /* coPractice.png */; };
 		99D21F2D1B4FD7C100D814E5 /* coNotPass.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D21F2C1B4FD7C100D814E5 /* coNotPass.png */; };
 		99D21F311B50C60700D814E5 /* coCampus.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D21F301B50C60700D814E5 /* coCampus.png */; };
+		99D34354221BA98900A9A660 /* ucButton9.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D34353221BA98800A9A660 /* ucButton9.png */; };
 		99D3C5CD1B0730D7003E4594 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D3C5CC1B0730D7003E4594 /* CoreText.framework */; };
 		99D5176F1D2509A100E37491 /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */; };
 		99D729561B4BB87A00F87D03 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D729551B4BB87A00F87D03 /* AgreementViewController.m */; };
@@ -742,6 +745,10 @@
 		998194E11B22C46900468B38 /* coMapClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coMapClose.png; sourceTree = "<group>"; };
 		998354B71E7A14F500C3CAD2 /* MajorSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MajorSearchViewController.h; sourceTree = "<group>"; };
 		998354B81E7A14F500C3CAD2 /* MajorSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MajorSearchViewController.m; sourceTree = "<group>"; };
+		99882AC1221D3537002152AA /* MyTalentsTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTalentsTestController.h; sourceTree = "<group>"; };
+		99882AC2221D3537002152AA /* MyTalentsTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTalentsTestController.m; sourceTree = "<group>"; };
+		99882AC4221D388A002152AA /* CommonToos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonToos.h; sourceTree = "<group>"; };
+		99882AC5221D388A002152AA /* CommonToos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonToos.m; sourceTree = "<group>"; };
 		998D16A11B01AA4A0079EAC6 /* coDownArrowCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coDownArrowCircle.png; sourceTree = "<group>"; };
 		998D16A21B01AA4A0079EAC6 /* coUpArrowCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coUpArrowCircle.png; sourceTree = "<group>"; };
 		998D16AB1B01F85A0079EAC6 /* applyUpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = applyUpArrow.png; sourceTree = "<group>"; };
@@ -890,6 +897,7 @@
 		99D21F2C1B4FD7C100D814E5 /* coNotPass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coNotPass.png; sourceTree = "<group>"; };
 		99D21F301B50C60700D814E5 /* coCampus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coCampus.png; sourceTree = "<group>"; };
 		99D34352221B8B0700A9A660 /* wutongguo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wutongguo.pch; sourceTree = "<group>"; };
+		99D34353221BA98800A9A660 /* ucButton9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ucButton9.png; sourceTree = "<group>"; };
 		99D3C5CC1B0730D7003E4594 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		99D5176E1D2509A100E37491 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
@@ -1357,6 +1365,7 @@
 				99B5A1F31CD834D100F6F64C /* ucButton5.png */,
 				99B5A1F41CD834D100F6F64C /* ucButton6.png */,
 				99B5A1F51CD834D100F6F64C /* ucButton7.png */,
+				99D34353221BA98800A9A660 /* ucButton9.png */,
 				990EEF511C48D0E5002D01C3 /* coTipsTitleApply.png */,
 				99BBB0AA1B7637EE0044A032 /* head.png */,
 				992BCA931B54F9C300EFE1BB /* regEmail.png */,
@@ -1531,6 +1540,8 @@
 				997969E51AF9BCDD00722F2F /* CommonMacro.h */,
 				991F330E1B008DA00030AA71 /* CommonFunc.h */,
 				991F330F1B008DA00030AA71 /* CommonFunc.m */,
+				99882AC4221D388A002152AA /* CommonToos.h */,
+				99882AC5221D388A002152AA /* CommonToos.m */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -1604,6 +1615,8 @@
 				998DAC6B1E7789CA00E1DE82 /* CompanyNoticeViewController.m */,
 				998DAC6D1E778F1000E1DE82 /* InvitationViewController.h */,
 				998DAC6E1E778F1000E1DE82 /* InvitationViewController.m */,
+				99882AC1221D3537002152AA /* MyTalentsTestController.h */,
+				99882AC2221D3537002152AA /* MyTalentsTestController.m */,
 			);
 			name = UserCenter;
 			sourceTree = "<group>";
@@ -1821,6 +1834,7 @@
 				995BB24B1AF7613E0047C971 /* Sources */,
 				995BB24C1AF7613E0047C971 /* Frameworks */,
 				995BB24D1AF7613E0047C971 /* Resources */,
+				8B879FD0D68FB31E7DD72CA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2046,6 +2060,7 @@
 				998174DC1B199B0700BDB47A /* coImgPrev.png in Resources */,
 				9998E1FE1B0632D900D0691B /* schoolMap.png in Resources */,
 				998175481B1ECF9900BDB47A /* coNoticeAdjust.png in Resources */,
+				99D34354221BA98900A9A660 /* ucButton9.png in Resources */,
 				99F9FE181B02F8E600459DC2 /* coBlueStatus.png in Resources */,
 				991C80EF1B11AAF400CFA0EC /* coHasApply.png in Resources */,
 				998194DF1B229A4800468B38 /* yindaonav.png in Resources */,
@@ -2159,6 +2174,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B879FD0D68FB31E7DD72CA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2217,7 +2250,9 @@
 				99A97EAB1B042B7A001ABA84 /* CampusListViewController.m in Sources */,
 				997969FB1AF9C0EE00722F2F /* WeChatRegViewController.m in Sources */,
 				9981751C1B1B02F200BDB47A /* FocusCompanyViewController.m in Sources */,
+				99882AC3221D3537002152AA /* MyTalentsTestController.m in Sources */,
 				99174EEF1B1472C500CABF5A /* SDImageCache.m in Sources */,
+				99882AC6221D388A002152AA /* CommonToos.m in Sources */,
 				991C80F41B12BCE000CFA0EC /* SearchSchoolListViewController.m in Sources */,
 				990EEF081C4291D9002D01C3 /* CpJobDetailViewController.m in Sources */,
 				997969F51AF9BD7300722F2F /* EmailRegViewController.m in Sources */,
@@ -2437,6 +2472,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = wutongguo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2446,7 +2482,7 @@
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/SinaWeiboSDK",
 					"$(PROJECT_DIR)/wutongguo/class/ShareSDK/extends/WeChatSDK",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51rc.wutongguo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2483,6 +2519,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = wutongguo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

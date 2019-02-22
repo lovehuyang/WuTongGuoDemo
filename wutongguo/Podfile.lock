@@ -1,16 +1,20 @@
 PODS:
   - SDAutoLayout (2.2.1)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - SDAutoLayout
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - SDAutoLayout
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 7b509fdfb92792a3051a0e1389f0c1071a11d671
+PODFILE CHECKSUM: c3041a13d03f5a28caf20e4a5ff588828e2a707f
 
 COCOAPODS: 1.5.3

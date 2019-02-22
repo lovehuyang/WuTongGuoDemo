@@ -8,5 +8,14 @@
 
 #ifndef wutongguo_pch
 #define wutongguo_pch
+#import "CommonToos.h"
+
+#import "SDAutoLayout.h"
+
+
+#define SCREEN_WIDTH                    ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT                   ([UIScreen mainScreen].bounds.size.height)
+#define HEIGHT_STATUS [CommonToos getStatusHight]
+#define HEIGHT_STATUS_NAV [CommonToos getStatusAndNavHight]
 
 #endif /* wutongguo_pch */

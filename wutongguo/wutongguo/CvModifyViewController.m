@@ -23,15 +23,14 @@
     // Do any additional setup after loading the view.
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [self.webView setDelegate:self];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://m.wutongguo.com/personal/cv/chscv?pamainid=%@&code=%@&fa=1&privi=authorize", [CommonFunc getPaMainId], [CommonFunc getCode]]]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.wutongguo.com/personal/cv/chscv?pamainid=%@&code=%@&fa=1&privi=authorize", [CommonFunc getPaMainId], [CommonFunc getCode]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     [(UIScrollView *)[[self.webView subviews] objectAtIndex:0] setBounces:NO];
     [self.view addSubview:self.webView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(webRefresh)];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
@@ -61,7 +60,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     }
     else {
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://m.wutongguo.com/personal/cv/chscv?pamainid=%@&code=%@&fa=1&privi=authorize", [CommonFunc getPaMainId], [CommonFunc getCode]]]]];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://m.wutongguo.com/personal/cv/chscv?pamainid=%@&code=%@&fa=1&privi=authorize", [CommonFunc getPaMainId], [CommonFunc getCode]]];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
     }
     //[self.webView goBack];
 }

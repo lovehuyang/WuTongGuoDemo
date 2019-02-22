@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UIView *lbUserSeparate;
 @property (strong, nonatomic) IBOutlet UILabel *lbMobileCer;
 @property (strong, nonatomic) IBOutlet UIImageView *imgMobileCer;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIButton *btnMobileCer;
 @property (strong, nonatomic) IBOutlet UIView *viewPhoto;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *constraintEmail;
