@@ -360,6 +360,7 @@
 		99D5176F1D2509A100E37491 /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */; };
 		99D729561B4BB87A00F87D03 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D729551B4BB87A00F87D03 /* AgreementViewController.m */; };
 		99D76F501B53690100A868A7 /* ucNotViewProcess.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D76F4F1B53690100A868A7 /* ucNotViewProcess.png */; };
+		99D7A7E52223B5E000B330DC /* CompanySideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7E42223B5E000B330DC /* CompanySideViewController.m */; };
 		99DA4FC11B23DA2B00F7739C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC01B23DA2B00F7739C /* CFNetwork.framework */; };
 		99DA4FC31B23DA3500F7739C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC21B23DA3500F7739C /* CoreFoundation.framework */; };
 		99DA4FC71B23DA5F00F7739C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC61B23DA5F00F7739C /* UIKit.framework */; };
@@ -904,6 +905,8 @@
 		99D729541B4BB87A00F87D03 /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		99D729551B4BB87A00F87D03 /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		99D76F4F1B53690100A868A7 /* ucNotViewProcess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ucNotViewProcess.png; sourceTree = "<group>"; };
+		99D7A7E32223B5E000B330DC /* CompanySideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanySideViewController.h; sourceTree = "<group>"; };
+		99D7A7E42223B5E000B330DC /* CompanySideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanySideViewController.m; sourceTree = "<group>"; };
 		99DA4FC01B23DA2B00F7739C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		99DA4FC21B23DA3500F7739C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		99DA4FC61B23DA5F00F7739C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1274,6 +1277,7 @@
 				99E8530C1B034B9B00AE0044 /* List */,
 				9998E1FF1B06D02300D0691B /* Detail */,
 				998175191B1B008800BDB47A /* UserCenter */,
+				99D7A7DE2223B5B000B330DC /* Company */,
 				995BB2561AF7613E0047C971 /* AppDelegate.h */,
 				995BB2571AF7613E0047C971 /* AppDelegate.m */,
 				99D34352221B8B0700A9A660 /* wutongguo.pch */,
@@ -1768,6 +1772,47 @@
 			name = CustomUI;
 			sourceTree = "<group>";
 		};
+		99D7A7DE2223B5B000B330DC /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				99D7A7E02223B5B000B330DC /* Controller */,
+				99D7A7DF2223B5B000B330DC /* Other */,
+				99D7A7E12223B5B000B330DC /* Model */,
+				99D7A7E22223B5B000B330DC /* View */,
+			);
+			path = Company;
+			sourceTree = "<group>";
+		};
+		99D7A7DF2223B5B000B330DC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		99D7A7E02223B5B000B330DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99D7A7E32223B5E000B330DC /* CompanySideViewController.h */,
+				99D7A7E42223B5E000B330DC /* CompanySideViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		99D7A7E12223B5B000B330DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99D7A7E22223B5B000B330DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		99DA4FBC1B23DA0A00F7739C /* JPush */ = {
 			isa = PBXGroup;
 			children = (
@@ -2208,6 +2253,7 @@
 				995BB2581AF7613E0047C971 /* AppDelegate.m in Sources */,
 				99A97EB41B047E49001ABA84 /* RecruitmentListViewController.m in Sources */,
 				99B1614E1B0B2AE100D3750E /* LoadingAnimationView.m in Sources */,
+				99D7A7E52223B5E000B330DC /* CompanySideViewController.m in Sources */,
 				998175221B1B031200BDB47A /* FocusSchoolViewController.m in Sources */,
 				99174EF61B1472C500CABF5A /* UIButton+WebCache.m in Sources */,
 				991C80E41B115C9000CFA0EC /* MJRefreshHeaderView.m in Sources */,

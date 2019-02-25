@@ -20,6 +20,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import "WXApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
+#import "CompanySideViewController.h"
 
 @interface LoginViewController ()<NetWebServiceRequestDelegate, UITextFieldDelegate>
 
@@ -37,6 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"登录";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"企业登录" style:UIBarButtonItemStylePlain target:self action:@selector(companyLogin)];
+    
     [self.btnLogin.layer setMasksToBounds:true];
     [self.btnLogin.layer setCornerRadius:2];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -283,4 +287,9 @@
      }];
 }
 
+#pragma mark - 企业登录点击事件
+- (void)companyLogin{
+    CompanySideViewController *cvc = [[CompanySideViewController alloc]init];
+    [self.navigationController pushViewController:cvc animated:YES];
+}
 @end
