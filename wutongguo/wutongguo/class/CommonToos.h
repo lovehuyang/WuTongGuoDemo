@@ -13,5 +13,8 @@
 
 + (CGFloat)getStatusHight;
 + (CGFloat)getStatusAndNavHight;
-
++ (NSString *)getIPaddress;
++ (NSString *)getCurrentTime;
++ (void)saveData:(NSString *)key value:(NSString *)value;
++ (NSString *)getValue:(NSString *)key;
 @end

@@ -25,6 +25,7 @@
 #import "UIImageView+WebCache.h"
 #import "CvModifyViewController.h"
 #import "MyTalentsTestController.h"
+#import "ChoseSideViewController.h"
 
 @interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource, NetWebServiceRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MLImageCropDelegate>
 
@@ -398,8 +399,11 @@
 
 - (BOOL)isLogin {
     if (![CommonFunc checkLogin]) {
-        UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
-        [self.navigationController pushViewController:loginCtrl animated:YES];
+        
+        ChoseSideViewController *cvc = [[ChoseSideViewController alloc]init];
+        [self.navigationController pushViewController:cvc animated:YES];
+//        UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+//        [self.navigationController pushViewController:loginCtrl animated:YES];
         return NO;
     }
     return YES;

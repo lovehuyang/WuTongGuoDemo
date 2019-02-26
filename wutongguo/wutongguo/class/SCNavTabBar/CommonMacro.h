@@ -8,6 +8,7 @@
 
 #ifndef ___CommonMacro_h
 #define ___CommonMacro_h
+#import "CommonToos.h"
 
 
 #pragma mark - **** Common Macro ****
@@ -46,7 +47,7 @@
 #define SCREEN_HEIGHT                   ([UIScreen mainScreen].bounds.size.height)
 
 #define DOT_COORDINATE                  0.0f
-#define STATUS_BAR_HEIGHT               20.0f
+#define STATUS_BAR_HEIGHT               [CommonToos getStatusHight]
 #define BAR_ITEM_WIDTH_HEIGHT           30.0f
 #define NAVIGATION_BAR_HEIGHT           44.0f
 #define TAB_TAB_HEIGHT                  49.0f

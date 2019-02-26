@@ -51,5 +51,5 @@
 + (NSString *)escape:(NSString *)str;
 + (NSString *)MD5:(NSString *)signString;
 + (NSString *)getDeviceID;
-
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
 @end

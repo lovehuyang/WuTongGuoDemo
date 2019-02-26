@@ -358,9 +358,20 @@
 		99D34354221BA98900A9A660 /* ucButton9.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D34353221BA98800A9A660 /* ucButton9.png */; };
 		99D3C5CD1B0730D7003E4594 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D3C5CC1B0730D7003E4594 /* CoreText.framework */; };
 		99D5176F1D2509A100E37491 /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */; };
+		99D6407C2224D6A7009BDD96 /* return_gray_Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D6407B2224D6A6009BDD96 /* return_gray_Arrow.png */; };
+		99D640822224DFE4009BDD96 /* UIImage+LYZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D6407F2224DFE4009BDD96 /* UIImage+LYZ.m */; };
+		99D640832224DFE4009BDD96 /* UIColor+RCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D640812224DFE4009BDD96 /* UIColor+RCColor.m */; };
+		99D640862224E48E009BDD96 /* RCToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D640842224E48D009BDD96 /* RCToast.m */; };
+		99D640892224E9DC009BDD96 /* LoginTextField2.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D640882224E9DC009BDD96 /* LoginTextField2.m */; };
+		99D6408C22250868009BDD96 /* CpRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D6408B22250868009BDD96 /* CpRegisterViewController.m */; };
 		99D729561B4BB87A00F87D03 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D729551B4BB87A00F87D03 /* AgreementViewController.m */; };
 		99D76F501B53690100A868A7 /* ucNotViewProcess.png in Resources */ = {isa = PBXBuildFile; fileRef = 99D76F4F1B53690100A868A7 /* ucNotViewProcess.png */; };
 		99D7A7E52223B5E000B330DC /* CompanySideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7E42223B5E000B330DC /* CompanySideViewController.m */; };
+		99D7A7F02223CD8200B330DC /* ChoseSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7EF2223CD8200B330DC /* ChoseSideViewController.m */; };
+		99D7A7F92223D59900B330DC /* RoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7F82223D59900B330DC /* RoleView.m */; };
+		99D7A7FC2223D94100B330DC /* WTGRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7FB2223D94100B330DC /* WTGRootViewController.m */; };
+		99D7A7FF2223E74300B330DC /* LoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A7FE2223E74200B330DC /* LoginTextField.m */; };
+		99D7A8022223E90A00B330DC /* CpLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D7A8012223E90A00B330DC /* CpLoginViewController.m */; };
 		99DA4FC11B23DA2B00F7739C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC01B23DA2B00F7739C /* CFNetwork.framework */; };
 		99DA4FC31B23DA3500F7739C /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC21B23DA3500F7739C /* CoreFoundation.framework */; };
 		99DA4FC71B23DA5F00F7739C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99DA4FC61B23DA5F00F7739C /* UIKit.framework */; };
@@ -902,11 +913,32 @@
 		99D3C5CC1B0730D7003E4594 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		99D5176D1D2509A100E37491 /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		99D5176E1D2509A100E37491 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		99D6407B2224D6A6009BDD96 /* return_gray_Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return_gray_Arrow.png; sourceTree = "<group>"; };
+		99D6407E2224DFE4009BDD96 /* UIImage+LYZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LYZ.h"; sourceTree = "<group>"; };
+		99D6407F2224DFE4009BDD96 /* UIImage+LYZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LYZ.m"; sourceTree = "<group>"; };
+		99D640802224DFE4009BDD96 /* UIColor+RCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RCColor.h"; sourceTree = "<group>"; };
+		99D640812224DFE4009BDD96 /* UIColor+RCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RCColor.m"; sourceTree = "<group>"; };
+		99D640842224E48D009BDD96 /* RCToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCToast.m; sourceTree = "<group>"; };
+		99D640852224E48E009BDD96 /* RCToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCToast.h; sourceTree = "<group>"; };
+		99D640872224E9DB009BDD96 /* LoginTextField2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTextField2.h; sourceTree = "<group>"; };
+		99D640882224E9DC009BDD96 /* LoginTextField2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTextField2.m; sourceTree = "<group>"; };
+		99D6408A22250868009BDD96 /* CpRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CpRegisterViewController.h; sourceTree = "<group>"; };
+		99D6408B22250868009BDD96 /* CpRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CpRegisterViewController.m; sourceTree = "<group>"; };
 		99D729541B4BB87A00F87D03 /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		99D729551B4BB87A00F87D03 /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		99D76F4F1B53690100A868A7 /* ucNotViewProcess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ucNotViewProcess.png; sourceTree = "<group>"; };
 		99D7A7E32223B5E000B330DC /* CompanySideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanySideViewController.h; sourceTree = "<group>"; };
 		99D7A7E42223B5E000B330DC /* CompanySideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompanySideViewController.m; sourceTree = "<group>"; };
+		99D7A7EE2223CD8200B330DC /* ChoseSideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChoseSideViewController.h; sourceTree = "<group>"; };
+		99D7A7EF2223CD8200B330DC /* ChoseSideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoseSideViewController.m; sourceTree = "<group>"; };
+		99D7A7F72223D59900B330DC /* RoleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoleView.h; sourceTree = "<group>"; };
+		99D7A7F82223D59900B330DC /* RoleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoleView.m; sourceTree = "<group>"; };
+		99D7A7FA2223D94000B330DC /* WTGRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTGRootViewController.h; sourceTree = "<group>"; };
+		99D7A7FB2223D94100B330DC /* WTGRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTGRootViewController.m; sourceTree = "<group>"; };
+		99D7A7FD2223E74200B330DC /* LoginTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginTextField.h; sourceTree = "<group>"; };
+		99D7A7FE2223E74200B330DC /* LoginTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginTextField.m; sourceTree = "<group>"; };
+		99D7A8002223E90A00B330DC /* CpLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CpLoginViewController.h; sourceTree = "<group>"; };
+		99D7A8012223E90A00B330DC /* CpLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CpLoginViewController.m; sourceTree = "<group>"; };
 		99DA4FC01B23DA2B00F7739C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		99DA4FC21B23DA3500F7739C /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		99DA4FC61B23DA5F00F7739C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1277,6 +1309,7 @@
 				99E8530C1B034B9B00AE0044 /* List */,
 				9998E1FF1B06D02300D0691B /* Detail */,
 				998175191B1B008800BDB47A /* UserCenter */,
+				99D7A7E92223CD4A00B330DC /* ChoseSide */,
 				99D7A7DE2223B5B000B330DC /* Company */,
 				995BB2561AF7613E0047C971 /* AppDelegate.h */,
 				995BB2571AF7613E0047C971 /* AppDelegate.m */,
@@ -1329,6 +1362,7 @@
 		995BB2811AF763C90047C971 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				99D6407B2224D6A6009BDD96 /* return_gray_Arrow.png */,
 				99343A4F1DE92495005BDA71 /* bg_company_top.jpg */,
 				99343A501DE92495005BDA71 /* img_company_Attention.png */,
 				99343A4D1DE6CE72005BDA71 /* icon.png */,
@@ -1529,6 +1563,7 @@
 		997969E31AF9BCDD00722F2F /* class */ = {
 			isa = PBXGroup;
 			children = (
+				99D6407D2224DFDD009BDD96 /* Category */,
 				990EEF0A1C433CB5002D01C3 /* ShareSDK */,
 				99DA4FBC1B23DA0A00F7739C /* JPush */,
 				9937ABA21B2148D200DFDC50 /* BaiduMap */,
@@ -1546,6 +1581,8 @@
 				991F330F1B008DA00030AA71 /* CommonFunc.m */,
 				99882AC4221D388A002152AA /* CommonToos.h */,
 				99882AC5221D388A002152AA /* CommonToos.m */,
+				99D7A7FA2223D94000B330DC /* WTGRootViewController.h */,
+				99D7A7FB2223D94100B330DC /* WTGRootViewController.m */,
 			);
 			path = class;
 			sourceTree = "<group>";
@@ -1751,6 +1788,8 @@
 		99B1614A1B0B2AE100D3750E /* Toast */ = {
 			isa = PBXGroup;
 			children = (
+				99D640852224E48E009BDD96 /* RCToast.h */,
+				99D640842224E48D009BDD96 /* RCToast.m */,
 				99B1614B1B0B2AE100D3750E /* Toast+UIView.h */,
 				99B1614C1B0B2AE100D3750E /* Toast+UIView.m */,
 			);
@@ -1770,6 +1809,17 @@
 				99A97EBC1B049269001ABA84 /* CampusCell.m */,
 			);
 			name = CustomUI;
+			sourceTree = "<group>";
+		};
+		99D6407D2224DFDD009BDD96 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				99D640802224DFE4009BDD96 /* UIColor+RCColor.h */,
+				99D640812224DFE4009BDD96 /* UIColor+RCColor.m */,
+				99D6407E2224DFE4009BDD96 /* UIImage+LYZ.h */,
+				99D6407F2224DFE4009BDD96 /* UIImage+LYZ.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		99D7A7DE2223B5B000B330DC /* Company */ = {
@@ -1809,6 +1859,57 @@
 		99D7A7E22223B5B000B330DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99D7A7E92223CD4A00B330DC /* ChoseSide */ = {
+			isa = PBXGroup;
+			children = (
+				99D7A7EA2223CD4A00B330DC /* Other */,
+				99D7A7EB2223CD4A00B330DC /* Controller */,
+				99D7A7EC2223CD4A00B330DC /* Model */,
+				99D7A7ED2223CD4A00B330DC /* View */,
+			);
+			path = ChoseSide;
+			sourceTree = "<group>";
+		};
+		99D7A7EA2223CD4A00B330DC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		99D7A7EB2223CD4A00B330DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99D7A7EE2223CD8200B330DC /* ChoseSideViewController.h */,
+				99D7A7EF2223CD8200B330DC /* ChoseSideViewController.m */,
+				99D7A8002223E90A00B330DC /* CpLoginViewController.h */,
+				99D7A8012223E90A00B330DC /* CpLoginViewController.m */,
+				99D6408A22250868009BDD96 /* CpRegisterViewController.h */,
+				99D6408B22250868009BDD96 /* CpRegisterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		99D7A7EC2223CD4A00B330DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99D7A7ED2223CD4A00B330DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99D7A7F72223D59900B330DC /* RoleView.h */,
+				99D7A7F82223D59900B330DC /* RoleView.m */,
+				99D7A7FD2223E74200B330DC /* LoginTextField.h */,
+				99D7A7FE2223E74200B330DC /* LoginTextField.m */,
+				99D640872224E9DB009BDD96 /* LoginTextField2.h */,
+				99D640882224E9DC009BDD96 /* LoginTextField2.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1879,7 +1980,6 @@
 				995BB24B1AF7613E0047C971 /* Sources */,
 				995BB24C1AF7613E0047C971 /* Frameworks */,
 				995BB24D1AF7613E0047C971 /* Resources */,
-				8B879FD0D68FB31E7DD72CA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2062,6 +2162,7 @@
 				99A97EB11B044FDD001ABA84 /* coMap.png in Resources */,
 				99A167241B10328300BA9841 /* coWaiting.png in Resources */,
 				99E8530B1B03439B00AE0044 /* coGreenPoint.png in Resources */,
+				99D6407C2224D6A7009BDD96 /* return_gray_Arrow.png in Resources */,
 				997969DF1AF9B55A00722F2F /* loginBaidu.png in Resources */,
 				99A97EDE1B04D912001ABA84 /* major5.png in Resources */,
 				996B5CD91AFDAEC7009469D1 /* coLeftArrow.png in Resources */,
@@ -2219,24 +2320,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8B879FD0D68FB31E7DD72CA9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wutongguo/Pods-wutongguo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2246,6 +2329,7 @@
 			files = (
 				99C306501ED52E3200A8865A /* CampusRecruitmentViewController.m in Sources */,
 				990EEF501C47753E002D01C3 /* MajorPickerViewController.m in Sources */,
+				99D7A7F02223CD8200B330DC /* ChoseSideViewController.m in Sources */,
 				99DA4FD61B242B9B00F7739C /* UserCenterViewController.m in Sources */,
 				99B1614F1B0B2AE100D3750E /* Toast+UIView.m in Sources */,
 				99174EF41B1472C500CABF5A /* SDWebImageManager.m in Sources */,
@@ -2253,6 +2337,7 @@
 				995BB2581AF7613E0047C971 /* AppDelegate.m in Sources */,
 				99A97EB41B047E49001ABA84 /* RecruitmentListViewController.m in Sources */,
 				99B1614E1B0B2AE100D3750E /* LoadingAnimationView.m in Sources */,
+				99D7A7F92223D59900B330DC /* RoleView.m in Sources */,
 				99D7A7E52223B5E000B330DC /* CompanySideViewController.m in Sources */,
 				998175221B1B031200BDB47A /* FocusSchoolViewController.m in Sources */,
 				99174EF61B1472C500CABF5A /* UIButton+WebCache.m in Sources */,
@@ -2263,16 +2348,20 @@
 				990EEF031C4290A3002D01C3 /* CpBrochureViewController.m in Sources */,
 				998175311B1D561700BDB47A /* InformViewController.m in Sources */,
 				998354B91E7A14F500C3CAD2 /* MajorSearchViewController.m in Sources */,
+				99D7A8022223E90A00B330DC /* CpLoginViewController.m in Sources */,
 				9981751F1B1B030100BDB47A /* FocusJobViewController.m in Sources */,
 				996B5CEB1AFDE7D8009469D1 /* ApplyWebViewController.m in Sources */,
+				99D640892224E9DC009BDD96 /* LoginTextField2.m in Sources */,
 				995BB25B1AF7613E0047C971 /* wutongguo.xcdatamodeld in Sources */,
 				99A166E01B0B6DE500BA9841 /* ASINetworkQueue.m in Sources */,
 				99B22B401B00382A00641FF4 /* SettingViewController.m in Sources */,
+				99D640822224DFE4009BDD96 /* UIImage+LYZ.m in Sources */,
 				99174EFA1B1472C500CABF5A /* UIImageView+HighlightedWebCache.m in Sources */,
 				991402051B155D06003C136D /* CpBrandViewController.m in Sources */,
 				997221E21AFC9999006E3A84 /* GetPsdStepTwoViewController.m in Sources */,
 				9998E2051B06D1E700D0691B /* CpMainViewController.m in Sources */,
 				990EEF091C4291D9002D01C3 /* CpJobListViewController.m in Sources */,
+				99D7A7FC2223D94100B330DC /* WTGRootViewController.m in Sources */,
 				997969F81AF9BD7D00722F2F /* MobileRegViewController.m in Sources */,
 				9998E2081B06E1E900D0691B /* CpBrochureListViewController.m in Sources */,
 				998175281B1B032F00BDB47A /* FocusRecruitmentViewController.m in Sources */,
@@ -2292,6 +2381,7 @@
 				998175431B1E96D800BDB47A /* NoticeListViewController.m in Sources */,
 				99E3CF8C1C4DD07B00B8D771 /* ApplyFormViewController.m in Sources */,
 				99DA4FD41B24233C00F7739C /* MobileCerViewController.m in Sources */,
+				99D6408C22250868009BDD96 /* CpRegisterViewController.m in Sources */,
 				990EEF001C429054002D01C3 /* CompanyViewController.m in Sources */,
 				99A97EAB1B042B7A001ABA84 /* CampusListViewController.m in Sources */,
 				997969FB1AF9C0EE00722F2F /* WeChatRegViewController.m in Sources */,
@@ -2328,6 +2418,7 @@
 				99174EEE1B1472C500CABF5A /* NSData+ImageContentType.m in Sources */,
 				991C80E11B115C9000CFA0EC /* MJRefreshBaseView.m in Sources */,
 				99CC05EE1B059FD500EA354D /* SchoolListViewController.m in Sources */,
+				99D640862224E48E009BDD96 /* RCToast.m in Sources */,
 				998DAC6C1E7789CA00E1DE82 /* CompanyNoticeViewController.m in Sources */,
 				9937AB9B1B204FFA00DFDC50 /* BindPaMainViewController.m in Sources */,
 				99A97EC31B049A77001ABA84 /* NearListViewController.m in Sources */,
@@ -2339,6 +2430,7 @@
 				99A166E21B0B6DE500BA9841 /* GDataXMLNode.m in Sources */,
 				997969F01AF9BCDD00722F2F /* SCNavTabBarController.m in Sources */,
 				991F33081B008A230030AA71 /* FMDatabaseAdditions.m in Sources */,
+				99D7A7FF2223E74300B330DC /* LoginTextField.m in Sources */,
 				991C80E71B115C9000CFA0EC /* UIView+Extension.m in Sources */,
 				99174EFB1B1472C500CABF5A /* UIImageView+WebCache.m in Sources */,
 				9998E20E1B06E1FC00D0691B /* CpImageViewController.m in Sources */,
@@ -2366,6 +2458,7 @@
 				99CC05F11B05CDEC00EA354D /* SchoolViewController.m in Sources */,
 				990EEF4D1C46465A002D01C3 /* PaInfoViewController.m in Sources */,
 				991F330A1B008A230030AA71 /* FMDatabaseQueue.m in Sources */,
+				99D640832224DFE4009BDD96 /* UIColor+RCColor.m in Sources */,
 				997969E21AF9BB9800722F2F /* RegisterViewController.m in Sources */,
 				99A1671C1B0F188A00BA9841 /* MLImageCrop.m in Sources */,
 				9998E20B1B06E1F200D0691B /* CpCampusViewController.m in Sources */,
