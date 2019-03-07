@@ -8,6 +8,7 @@
 
 #import "UserCenterViewController.h"
 #import "ApplyLogViewController.h"
+#import "ExchangeRoleViewController.h"
 #import "AccountManagerViewController.h"
 #import "FocusViewController.h"
 #import "InformViewController.h"
@@ -25,7 +26,6 @@
 #import "UIImageView+WebCache.h"
 #import "CvModifyViewController.h"
 #import "MyTalentsTestController.h"
-#import "ChoseSideViewController.h"
 
 @interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource, NetWebServiceRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MLImageCropDelegate>
 
@@ -46,8 +46,8 @@
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
 
-    self.arrTitle = @[@[ @"简历管理", @"网申记录", @"企业通知", @"我的关注"], @[@"网站消息", @"账户管理", @"我的测评",@"我要反馈", @"应用分享"]];
-    self.titleImgArr = @[@[ @"ucButton1", @"ucButton2", @"ucButton3", @"ucButton4"], @[@"ucButton5", @"ucButton6", @"ucButton9" ,@"ucButton7", @"ucButton8"]];
+    self.arrTitle = @[@[ @"简历管理", @"网申记录", @"企业通知", @"我的关注"], @[@"网站消息", @"账户管理", @"我的测评",@"我要反馈", @"应用分享",@"切换身份"]];
+    self.titleImgArr = @[@[ @"ucButton1", @"ucButton2", @"ucButton3", @"ucButton4"], @[@"ucButton5", @"ucButton6", @"ucButton9" ,@"ucButton7", @"ucButton8",@"ucButton10"]];
     //头部的视图
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     [self.titleView setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"ucIndexBg.png"]]];
@@ -79,6 +79,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
     [self.viewUser setHidden:YES];
     [self.btnLogin setHidden:NO];
     if ([CommonFunc checkLogin]) {
@@ -116,6 +117,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.titleView removeFromSuperview];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)netRequestFinished:(NetWebServiceRequest *)request
@@ -326,9 +328,16 @@
             self.runningRequest = [NetWebServiceRequest serviceRequestUrl:@"GetShareTitle" params:[NSDictionary dictionaryWithObjectsAndKeys:@"212", @"pageID", @"", @"id", nil] tag:3];
             [self.runningRequest setDelegate:self];
             [self.runningRequest startAsynchronous];
+            return;
         }
     }
     
+    if(indexPath.section == 1 && indexPath.row == 5){// 切换身份
+        ExchangeRoleViewController *evc = [ExchangeRoleViewController new];
+        evc.status = @"学生";
+        [self.navigationController pushViewController:evc animated:YES];
+        return;
+    }
     
     if (![self isLogin]) {
         return;
@@ -400,10 +409,8 @@
 - (BOOL)isLogin {
     if (![CommonFunc checkLogin]) {
         
-        ChoseSideViewController *cvc = [[ChoseSideViewController alloc]init];
-        [self.navigationController pushViewController:cvc animated:YES];
-//        UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
-//        [self.navigationController pushViewController:loginCtrl animated:YES];
+        UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
+        [self.navigationController pushViewController:loginCtrl animated:YES];
         return NO;
     }
     return YES;

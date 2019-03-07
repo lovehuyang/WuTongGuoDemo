@@ -64,7 +64,6 @@
         [btn setImage:[UIImage imageNamed:@"close_eye"] forState:UIControlStateNormal];
     }else{
         
-        [RCToast showMessage:@"哈哈哈"];
         self.secureTextEntry = YES;
         [btn setImage:[UIImage imageNamed:@"open_eye"] forState:UIControlStateNormal];
     }

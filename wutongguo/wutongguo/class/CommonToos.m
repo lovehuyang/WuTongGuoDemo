@@ -74,4 +74,94 @@
     NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:key];
     return value;
 }
+
++ (void)removeData:(NSString *)key{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
++ (BOOL) deptNumInputShouldNumber:(NSString *)str{
+    if (str.length == 0) {
+        return NO;
+    }
+    NSString *regex = @"[0-9]*";
+    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    if ([pred evaluateWithObject:str]) {
+        return YES;
+    }
+    return NO;
+}
+
++ (CGFloat)stringWidth:(NSString *)str fontSize:(CGFloat)fontSize{
+    CGSize size = [str sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]}];
+    CGSize statuseStrSize = CGSizeMake(ceilf(size.width), ceilf(size.height));
+    return statuseStrSize.width;
+    
+}
+
+
+/**
+ 注册接口返回的错误信息
+
+ @param errorCode 错误码
+ @return 错误原因
+ */
++ (NSString *)registerResult:(NSInteger)errorCode{
+    switch (errorCode) {
+        case -1:
+            return @"企业名称在黑名单";
+            break;
+          case -2:
+            return @"email在黑名单";
+            break;
+        case -3:
+            return @"手机号在黑名单";
+            break;
+        case -4:
+            return @"ip在黑名单";
+            break;
+        case -5:
+            return @"用户名重复";
+            break;
+        case -7:
+            return @"企业名称重复";
+            break;
+        case -8:
+            return @"Email重复";
+            break;
+        case -11:
+            return @"email不正确";
+            break;
+        case -12:
+            return @"手机号不正确";
+            break;
+        case -13:
+            return @"用户名不正确";
+            break;
+        case -15:
+            return @"地区选择错误";
+            break;
+        default:
+            return @"注册失败,未知错误";
+            break;
+    }
+    
+    /*
+     
+     1 注册成功
+     0 注册失败 未知错误
+     -1 企业名称在黑名单
+     -2 email在黑名单
+     -3 手机号在黑名单
+     -4 ip在黑名单
+     -5 用户名重复
+     -7 企业名称重复
+     -8 Email重复
+     -11 email不正确
+     -12 手机号不正确
+     -13 用户名不正确
+     -15 地区选择错误
+     
+     */
+    
+}
 @end

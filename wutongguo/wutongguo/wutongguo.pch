@@ -10,20 +10,22 @@
 #define wutongguo_pch
 #import "CommonToos.h"
 
-#import "SDAutoLayout.h"
 #import "WTGRootViewController.h"
 #import "UIImage+LYZ.h"
 #import "UIColor+RCColor.h"
 #import "RCToast.h"
 #import "Toast+UIView.h"
 #import "LoadingAnimationView.h"
-
-
+#import "CommonMacro.h"
+#define CP_CODE_KEY @"cpToken"// 企业账号——token
+#define CP_ACCOUNTID_KEY @"cpAccountID"// 企业账号——cpAccountID
+#define CP_MAINID_KEY @"cpMainID"// 企业账号——cpMainID
+#define APP_STATUS @"APP_STATUS"// app上次关闭时的状态（企业端还是求职端）0为个人端 1为企业端，
 
 #define SCREEN_WIDTH                    ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT                   ([UIScreen mainScreen].bounds.size.height)
 #define HEIGHT_STATUS [CommonToos getStatusHight]
 #define HEIGHT_STATUS_NAV [CommonToos getStatusAndNavHight]
-#define CP_CODE [CommonToos getValue:@"CP_CODE"]
+#define CP_CODE [CommonToos getValue:CP_CODE_KEY]
 
 #endif /* wutongguo_pch */

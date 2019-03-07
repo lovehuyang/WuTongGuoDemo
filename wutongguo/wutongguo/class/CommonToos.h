@@ -17,4 +17,8 @@
 + (NSString *)getCurrentTime;
 + (void)saveData:(NSString *)key value:(NSString *)value;
 + (NSString *)getValue:(NSString *)key;
++ (void)removeData:(NSString *)key;
++ (BOOL) deptNumInputShouldNumber:(NSString *)str;
++ (CGFloat)stringWidth:(NSString *)str fontSize:(CGFloat)fontSize;
++ (NSString *)registerResult:(NSInteger)errorCode;
 @end

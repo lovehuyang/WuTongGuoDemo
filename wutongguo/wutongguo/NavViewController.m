@@ -13,6 +13,8 @@
 #import "NetWebServiceRequest.h"
 #import "JPUSHService.h"
 #import "MyTalentsTestController.h"
+#import "WRNavigationBar.h"
+
 
 @interface NavViewController ()<NetWebServiceRequestDelegate>
 
@@ -27,6 +29,22 @@
     self.delegate = self;
     self.tabBarItem.selectedImage = [[UIImage imageNamed:[NSString stringWithFormat:@"bottom%ld_highlight.png", (long)self.tabItem.tag]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [self.tabBarController.tabBar setTintColor:NAVBARCOLOR];
+    
+     [self setNavBarAppearence];
+}
+
+- (void)setNavBarAppearence{
+    
+    // 设置导航栏默认的背景颜色
+    [WRNavigationBar wr_setDefaultNavBarBarTintColor:NAVBARCOLOR];
+    // 设置导航栏所有按钮的默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[UIColor whiteColor]];
+    // 设置导航栏标题默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:[UIColor whiteColor]];
+    // 统一设置状态栏样式
+    [WRNavigationBar wr_setDefaultStatusBarStyle:UIStatusBarStyleLightContent];
+    // 如果需要设置导航栏底部分割线隐藏，可以在这里统一设置
+    [WRNavigationBar wr_setDefaultNavBarShadowImageHidden:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

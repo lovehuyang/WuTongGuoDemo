@@ -17,6 +17,9 @@
 #import "JPUSHService.h"
 #import "UIImageView+WebCache.h"
 #import "CommonMacro.h"
+#import "ChoseSideViewController.h"
+#import "NavViewController.h"
+#import "CpLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -136,8 +139,34 @@
     }
     // clearBadgeNumber
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    // 设置跟控制器
+    [self setupRootViewController];
+    
     return YES;
     
+}
+
+#pragma mark - 设置跟控制器
+- (void)setupRootViewController{
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    NSString *app_Status = [CommonToos getValue:APP_STATUS];
+    if (app_Status == nil) {
+        self.window.rootViewController = [[NavViewController alloc]initWithRootViewController:[ChoseSideViewController new]];
+        
+    }else if([app_Status isEqualToString:@"0"]){
+        UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        self.window.rootViewController = [storyBoard instantiateViewControllerWithIdentifier:@"person"];
+    }else if ([app_Status isEqualToString:@"1"]){
+        CpLoginViewController *cvc  = [CpLoginViewController new];
+        cvc.isRootView = YES;
+        self.window.rootViewController = [[NavViewController alloc]initWithRootViewController:cvc];
+    }
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

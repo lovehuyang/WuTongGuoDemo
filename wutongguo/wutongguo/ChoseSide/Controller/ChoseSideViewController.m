@@ -11,9 +11,11 @@
 #import "RoleView.h"
 #import "CommonMacro.h"
 #import "LoginViewController.h"
+#import "AppDelegate.h"
 
 @interface ChoseSideViewController ()
 @property (nonatomic , strong) UIImageView *backView;
+@property (nonatomic, strong) LoadingAnimationView *loadingView;
 @end
 
 @implementation ChoseSideViewController
@@ -22,10 +24,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.navigationController setNavigationBarHidden:YES];
+    
     self.title = @"选择身份";
     [self.view addSubview:self.backView];
     
     [self setupRoleUI];
+    
+    //等待动画
+    self.loadingView = [[LoadingAnimationView alloc] initLoading];
+    [self.backView addSubview:self.loadingView];
 }
 
 - (UIImageView *)backView{
@@ -54,16 +62,31 @@
     UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(personClick)];
     [personView addGestureRecognizer:tap2];
 }
-
+#pragma mark - 企业用户
 - (void)companyClick{
+    [CommonToos saveData:APP_STATUS value:@"1"];
     CpLoginViewController *lvc = [CpLoginViewController new];
     [self.navigationController pushViewController:lvc animated:YES];
 }
 
+#pragma mark - 学生用户
 - (void)personClick{
-    
-    UIStoryboard *sb=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    [self.navigationController pushViewController:[sb instantiateViewControllerWithIdentifier:@"loginView"] animated:YES];
+    [CommonToos saveData:APP_STATUS value:@"0"];
+    [self.loadingView startAnimating];
 
+    // GCD延时执行
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       
+        UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+        UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        window.rootViewController = [storyBoard instantiateViewControllerWithIdentifier:@"person"];
+    });
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    
+}
+
 @end

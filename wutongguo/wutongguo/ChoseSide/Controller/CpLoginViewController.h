@@ -9,5 +9,5 @@
 #import "WTGRootViewController.h"
 
 @interface CpLoginViewController : WTGRootViewController
-
+@property (nonatomic , assign) BOOL isRootView;// 
 @end

@@ -157,6 +157,7 @@
         if (self.fromJobApply) {
             [USER_DEFAULT setValue:@"1" forKey:@"willApplyJob"];
         }
+        [CommonToos saveData:APP_STATUS value:@"0"];
         [self.view.window makeToast:@"登录成功"];
         UIViewController *prevCtrl = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
         if ([prevCtrl isKindOfClass:[RegisterViewController class]]) {
@@ -286,4 +287,13 @@
      }];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
 @end

@@ -68,6 +68,12 @@
 #define IFISSTR(v)                      (v = ([v isKindOfClass:[NSString class]]) ? v : [NSString stringWithFormat:@"%@",v])
 
 
+#define LOADINGTAG                      999
+#define POPVIEWTAG                      998
+#define POPVIEWCONTENTTAG               995
+#define POPBACKGROUNDVIEWTAG            997
+#define NODATAVIEWTAG                   996
+
 #pragma mark - **** Constants ****
 #pragma mark -
 #define SCNavTabbarBundleName           @"SCNavTabBar.bundle"
@@ -76,6 +82,15 @@
 #define LABEL_SIZE(c,w,h,f)             ([c boundingRectWithSize:CGSizeMake(w,h) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:f]} context:nil].size)
 
 #define FONT(s)                         [UIFont systemFontOfSize:s]
+#define SMALLERFONTSIZE                 IS_IPHONE_6Plus ? 12 : 10
+#define SMALLERFONT                     FONT(SMALLERFONTSIZE)
+#define DEFAULTFONTSIZE                 IS_IPHONE_6Plus ? 14 : 12
+#define DEFAULTFONT                     FONT(DEFAULTFONTSIZE)
+#define BIGGERFONTSIZE                  IS_IPHONE_6Plus ? 16 : 14
+#define BIGGERFONT                      FONT(BIGGERFONTSIZE)
+#define BIGGESTFONTSIZE                 IS_IPHONE_6Plus ? 18 : 16
+#define BIGGESTFONT                     FONT(BIGGESTFONTSIZE)
+
 //得到视图的left top的X,Y坐标点
 #define VIEW_TX(view)                   (view.frame.origin.x)
 #define VIEW_TY(view)                   (view.frame.origin.y)
