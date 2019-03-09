@@ -75,9 +75,11 @@
     [self initContent];
     //分享
     UIButton *btnShare = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [btnShare setBackgroundImage:[UIImage imageNamed:@"coShare.png"] forState:UIControlStateNormal];
+    [btnShare setBackgroundImage:[UIImage imageNamed:@"coShare"] forState:UIControlStateNormal];
     [btnShare addTarget:self action:@selector(shareClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btnShare];
+    UIView *containerView = [[UIView alloc]initWithFrame:btnShare.frame];
+    [containerView addSubview:btnShare];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:containerView];
 }
 
 - (void)fillData {

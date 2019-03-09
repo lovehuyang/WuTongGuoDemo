@@ -73,7 +73,14 @@
     self.progressView.transform = CGAffineTransformMakeScale(1.0f, 1.5f);
     [self.view bringSubviewToFront:self.progressView];
 }
+
 - (void)dealloc {
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
 @end

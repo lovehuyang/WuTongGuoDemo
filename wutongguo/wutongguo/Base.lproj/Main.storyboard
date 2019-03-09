@@ -2372,10 +2372,10 @@
             </objects>
             <point key="canvasLocation" x="1692" y="-494"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar Controller-->
         <scene sceneID="Utp-KS-bWC">
             <objects>
-                <tabBarController storyboardIdentifier="person" id="HFy-Dl-Ab5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="person" id="HFy-Dl-Ab5" customClass="WTGTabbarController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oyS-gx-8SU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

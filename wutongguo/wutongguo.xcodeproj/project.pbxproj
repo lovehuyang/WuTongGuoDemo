@@ -294,6 +294,8 @@
 		99A167201B102B0D00BA9841 /* coGrayCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A1671E1B102B0D00BA9841 /* coGrayCircle.png */; };
 		99A167231B10328300BA9841 /* coSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A167211B10328300BA9841 /* coSuccess.png */; };
 		99A167241B10328300BA9841 /* coWaiting.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A167221B10328300BA9841 /* coWaiting.png */; };
+		99A71FD52233493A006985D4 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A71FD02233493A006985D4 /* UIView+SDAutoLayout.m */; };
+		99A71FD62233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A71FD32233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m */; };
 		99A97EA81B03554F001ABA84 /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EA71B03554F001ABA84 /* dictionary.db */; };
 		99A97EAB1B042B7A001ABA84 /* CampusListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A97EAA1B042B7A001ABA84 /* CampusListViewController.m */; };
 		99A97EAE1B0448A5001ABA84 /* coFavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EAC1B0448A5001ABA84 /* coFavorite.png */; };
@@ -313,6 +315,8 @@
 		99A97EDF1B04D912001ABA84 /* major6.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97ED91B04D912001ABA84 /* major6.png */; };
 		99A97EE21B04DA87001ABA84 /* majorDownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EE01B04DA87001ABA84 /* majorDownArrow.png */; };
 		99A97EE31B04DA87001ABA84 /* majorUpArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EE11B04DA87001ABA84 /* majorUpArrow.png */; };
+		99ADC348223205870007CB71 /* BaseTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ADC347223205870007CB71 /* BaseTabbar.m */; };
+		99ADC34B223206A60007CB71 /* WTGTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99ADC34A223206A50007CB71 /* WTGTabbarController.m */; };
 		99B161441B0AEC4100D3750E /* coEmptyCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B161431B0AEC4100D3750E /* coEmptyCircle.png */; };
 		99B1614D1B0B2AE100D3750E /* AnimatedGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B161471B0B2AE100D3750E /* AnimatedGif.m */; };
 		99B1614E1B0B2AE100D3750E /* LoadingAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B161491B0B2AE100D3750E /* LoadingAnimationView.m */; };
@@ -841,6 +845,11 @@
 		99A1671E1B102B0D00BA9841 /* coGrayCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coGrayCircle.png; sourceTree = "<group>"; };
 		99A167211B10328300BA9841 /* coSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coSuccess.png; sourceTree = "<group>"; };
 		99A167221B10328300BA9841 /* coWaiting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coWaiting.png; sourceTree = "<group>"; };
+		99A71FD02233493A006985D4 /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		99A71FD12233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		99A71FD22233493A006985D4 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		99A71FD32233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		99A71FD42233493A006985D4 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
 		99A97EA71B03554F001ABA84 /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		99A97EA91B042B7A001ABA84 /* CampusListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusListViewController.h; sourceTree = "<group>"; };
 		99A97EAA1B042B7A001ABA84 /* CampusListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusListViewController.m; sourceTree = "<group>"; };
@@ -866,6 +875,10 @@
 		99A97ED91B04D912001ABA84 /* major6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = major6.png; sourceTree = "<group>"; };
 		99A97EE01B04DA87001ABA84 /* majorDownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = majorDownArrow.png; sourceTree = "<group>"; };
 		99A97EE11B04DA87001ABA84 /* majorUpArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = majorUpArrow.png; sourceTree = "<group>"; };
+		99ADC346223205860007CB71 /* BaseTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabbar.h; sourceTree = "<group>"; };
+		99ADC347223205870007CB71 /* BaseTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabbar.m; sourceTree = "<group>"; };
+		99ADC349223206A50007CB71 /* WTGTabbarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTGTabbarController.h; sourceTree = "<group>"; };
+		99ADC34A223206A50007CB71 /* WTGTabbarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTGTabbarController.m; sourceTree = "<group>"; };
 		99B161431B0AEC4100D3750E /* coEmptyCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coEmptyCircle.png; sourceTree = "<group>"; };
 		99B161461B0B2AE100D3750E /* AnimatedGif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedGif.h; sourceTree = "<group>"; };
 		99B161471B0B2AE100D3750E /* AnimatedGif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimatedGif.m; sourceTree = "<group>"; };
@@ -1601,6 +1614,7 @@
 		997969E31AF9BCDD00722F2F /* class */ = {
 			isa = PBXGroup;
 			children = (
+				99A71FCF2233493A006985D4 /* SDAutoLayout */,
 				99B4C3F9222908A0002D595F /* WRNavigationBar */,
 				99D6407D2224DFDD009BDD96 /* Category */,
 				990EEF0A1C433CB5002D01C3 /* ShareSDK */,
@@ -1814,6 +1828,18 @@
 			path = MLImageCrop;
 			sourceTree = "<group>";
 		};
+		99A71FCF2233493A006985D4 /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				99A71FD02233493A006985D4 /* UIView+SDAutoLayout.m */,
+				99A71FD12233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.h */,
+				99A71FD22233493A006985D4 /* SDAutoLayout.h */,
+				99A71FD32233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m */,
+				99A71FD42233493A006985D4 /* UIView+SDAutoLayout.h */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
 		99B161451B0B2AE100D3750E /* LoadingAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1840,6 +1866,10 @@
 		99B22B2A1AFF2BA700641FF4 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				99ADC346223205860007CB71 /* BaseTabbar.h */,
+				99ADC347223205870007CB71 /* BaseTabbar.m */,
+				99ADC349223206A50007CB71 /* WTGTabbarController.h */,
+				99ADC34A223206A50007CB71 /* WTGTabbarController.m */,
 				99D65D4522267D5600AC7B79 /* WKLabel.h */,
 				99D65D4422267D5500AC7B79 /* WKLabel.m */,
 				99D65D4222267D0400AC7B79 /* WKPopView.h */,
@@ -2424,6 +2454,7 @@
 				99B1614F1B0B2AE100D3750E /* Toast+UIView.m in Sources */,
 				99174EF41B1472C500CABF5A /* SDWebImageManager.m in Sources */,
 				99A166DF1B0B6DE500BA9841 /* ASIInputStream.m in Sources */,
+				99A71FD52233493A006985D4 /* UIView+SDAutoLayout.m in Sources */,
 				995BB2581AF7613E0047C971 /* AppDelegate.m in Sources */,
 				99A97EB41B047E49001ABA84 /* RecruitmentListViewController.m in Sources */,
 				99B1614E1B0B2AE100D3750E /* LoadingAnimationView.m in Sources */,
@@ -2520,6 +2551,7 @@
 				998DAC6C1E7789CA00E1DE82 /* CompanyNoticeViewController.m in Sources */,
 				9937AB9B1B204FFA00DFDC50 /* BindPaMainViewController.m in Sources */,
 				99A97EC31B049A77001ABA84 /* NearListViewController.m in Sources */,
+				99A71FD62233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				99174EF31B1472C500CABF5A /* SDWebImageDownloaderOperation.m in Sources */,
 				9981752B1B1B038C00BDB47A /* FocusViewController.m in Sources */,
 				99A166E41B0B6DE500BA9841 /* SoapXmlParseHelper.m in Sources */,
@@ -2547,6 +2579,7 @@
 				99174EF91B1472C500CABF5A /* UIImage+WebP.m in Sources */,
 				9981752E1B1C995600BDB47A /* FeedbackViewController.m in Sources */,
 				996B5CEE1AFDE7E4009469D1 /* ApplyOtherViewController.m in Sources */,
+				99ADC34B223206A60007CB71 /* WTGTabbarController.m in Sources */,
 				995BB2C01AF77F7A0047C971 /* NavViewController.m in Sources */,
 				99B22B2D1AFF2C6F00641FF4 /* CustomLabel.m in Sources */,
 				997221D31AFC876F006E3A84 /* GetPsdStepOneViewController.m in Sources */,
@@ -2567,6 +2600,7 @@
 				99D729561B4BB87A00F87D03 /* AgreementViewController.m in Sources */,
 				99A166E11B0B6DE500BA9841 /* Reachability.m in Sources */,
 				99B22B4F1B00489C00641FF4 /* AboutUsViewController.m in Sources */,
+				99ADC348223205870007CB71 /* BaseTabbar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2727,6 +2761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.51rc.wutongguo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/wutongguo/class/JPush";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -2774,6 +2809,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.51rc.wutongguo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/wutongguo/class/JPush";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

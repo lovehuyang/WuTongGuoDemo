@@ -48,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+  
     self.employType = @"0";
     if (self.searchType == 0) {
         self.title = @"招聘简章";

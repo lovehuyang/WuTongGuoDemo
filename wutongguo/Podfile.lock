@@ -1,24 +1,20 @@
 PODS:
   - BRPickerView (2.2.1)
-  - SDAutoLayout (2.2.1)
   - YBAttributeTextTapAction (3.0.3)
 
 DEPENDENCIES:
   - BRPickerView
-  - SDAutoLayout
   - YBAttributeTextTapAction
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BRPickerView
-    - SDAutoLayout
     - YBAttributeTextTapAction
 
 SPEC CHECKSUMS:
   BRPickerView: 0590a8c5de9bd98c6b4e4f117a3dff6de287d5b2
-  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   YBAttributeTextTapAction: b7e61f0265b5673e7ce7bad7319e8eff9e209a2b
 
-PODFILE CHECKSUM: bb383ced68c1dca07d7c6ed26f6a9f99797b913c
+PODFILE CHECKSUM: 057a7939935b8b283313c1958edd22ab47475b20
 
 COCOAPODS: 1.5.3
