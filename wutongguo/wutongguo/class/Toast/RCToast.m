@@ -12,7 +12,7 @@
 +(void)showMessage:(NSString *)message withView:(UIView *)view{
     
     UIView *showview =  [[UIView alloc]init];
-    showview.backgroundColor =  [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8] ;//  RGBA(0, 0, 0, 0.8);
+    showview.backgroundColor = UIColorWithRGBA(0, 0, 0, 0.8) ;//  RGBA(0, 0, 0, 0.8);
     showview.frame = CGRectZero;
     
     showview.alpha = 1.0f;
@@ -30,7 +30,7 @@
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:16];
+    label.font = DEFAULTFONT;
     [showview addSubview:label];
     //提示框的位置
     showview.frame = CGRectMake(0, 0, labelSize.width+21*2, labelSize.height+21*2);

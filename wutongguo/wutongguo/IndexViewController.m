@@ -23,7 +23,7 @@
 #import "CompanyViewController.h"
 #import "SearchViewController.h"
 #import "NewsAnalysisViewController.h"
-
+#import "ApplySpeedUpIntroduceController.h"
 @interface IndexViewController () <NetWebServiceRequestDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NetWebServiceRequest *runningRequest;
@@ -118,7 +118,7 @@
     self.viewBottom = [[UIView alloc] initWithFrame:CGRectMake(0, VIEW_BY(viewCollection) + 10, SCREEN_WIDTH, 100)];
     [self.viewBottom setBackgroundColor:[UIColor whiteColor]];
     [self.viewScroll addSubview:self.viewBottom];
-    arrText = [[NSArray alloc] initWithObjects:@"网申记录",@"企业通知",@"我的关注",@"按专业找工作",nil];
+    arrText = [[NSArray alloc] initWithObjects:@"网申记录",@"企业通知",@"我的关注",@"求职加速",nil];
     for (int index = 0; index < arrText.count; index++) {
         UIButton *btnItem = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH / 2) * (index % 2), floor(index / 2) * 50, (SCREEN_WIDTH / 2), 50)];
         [btnItem setTag:index];
@@ -147,11 +147,12 @@
     UIView *viewBottom = [[UIView alloc] initWithFrame:CGRectMake(0, VIEW_H(self.viewBottom) - 0.5, SCREEN_WIDTH, 0.5)];
     [viewBottom setBackgroundColor:SEPARATECOLOR];
     [self.viewBottom addSubview:viewBottom];
-    //高校、行业名企 图片按钮
+    
+    //高校查询、行业名企、按专业找工作 图片按钮
     UIView *viewImageButton = [[UIView alloc] initWithFrame:CGRectMake(0, VIEW_BY(self.viewBottom) + 10, SCREEN_WIDTH, (SCREEN_WIDTH / 2) * 0.356)];
     [self.viewScroll addSubview:viewImageButton];
-    for (int i = 0; i < 2; i++) {
-        UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(i * (VIEW_W(viewImageButton) / 2), 0, (VIEW_W(viewImageButton) / 2), VIEW_H(viewImageButton))];
+    for (int i = 0; i < 3; i++) {
+        UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(i * (VIEW_W(viewImageButton) / 3), 0, (VIEW_W(viewImageButton) / 3), VIEW_H(viewImageButton))];
         [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"index_imagebutton%d.png", (i + 1)]] forState:UIControlStateNormal];
         [btnImage setTag:i];
         [btnImage addTarget:self action:@selector(imageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -188,7 +189,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (![CommonFunc checkLogin]) {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    if (![CommonFunc checkLogin]) {// 没有登录
         for (UIView *childView in self.viewBottom.subviews) {
             if ([childView isKindOfClass:[UIButton class]]) {
                 if (childView.tag == 4) {
@@ -201,9 +204,9 @@
                     if ([buttonChildView isKindOfClass:[CustomLabel class]]) {
                         [buttonChildView removeFromSuperview];
                     }
-                    if ([buttonChildView isKindOfClass:[UILabel class]] && childView.tag == 3) {
-                        [(UILabel *)buttonChildView setText:@"按专业找工作"];
-                    }
+//                    if ([buttonChildView isKindOfClass:[UILabel class]] && childView.tag == 3) {
+//                        [(UILabel *)buttonChildView setText:@"按专业找工作"];
+//                    }
                 }
             }
         }
@@ -234,6 +237,7 @@
     [self.runningRequest startSynchronous];
 }
 
+#pragma mark - 网申记录、企业通知、我的关注、求职加速
 - (void)buttonClick:(UIButton *)sender {
     if (![CommonFunc checkLogin] && sender.tag < 3) {
         UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
@@ -255,15 +259,22 @@
         FocusViewController *focusCtrl = [[FocusViewController alloc] init];
         [self.navigationController pushViewController:focusCtrl animated:YES];
     }
-    else if (sender.tag == 3) { //按专业找工作
-        [self clickLog:@"14"];
-        UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
-        [self.navigationController pushViewController:industryCtrl animated:YES];
+    else if (sender.tag == 3) { //求职加速
+        ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
+        [self.navigationController pushViewController:apvc animated:YES];
+        
+        
+//        [self clickLog:@"14"];
+//        UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
+//        [self.navigationController pushViewController:industryCtrl animated:YES];
     }
     else if (sender.tag == 4) { //猜你喜欢
-        [self clickLog:@"15"];
-        LikeListViewController *likeListCtrl = [[LikeListViewController alloc] init];
-        [self.navigationController pushViewController:likeListCtrl animated:YES];
+        
+        ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
+        [self.navigationController pushViewController:apvc animated:YES];
+//        [self clickLog:@"15"];
+//        LikeListViewController *likeListCtrl = [[LikeListViewController alloc] init];
+//        [self.navigationController pushViewController:likeListCtrl animated:YES];
     }
 }
 
@@ -336,7 +347,8 @@
                         }
                         for (UIView *buttonChildView in childView.subviews) {
                             if ([buttonChildView isKindOfClass:[UILabel class]] && childView.tag == 4) {
-                                [(UILabel *)buttonChildView setText:@"猜你喜欢"];
+//                                [(UILabel *)buttonChildView setText:@"猜你喜欢"];
+                                [(UILabel *)buttonChildView setText:@"求职加速"];
                             }
                             if ([buttonChildView isKindOfClass:[UIImageView class]]) {
                                 [(UIImageView *)buttonChildView setImage:nil];
@@ -584,9 +596,13 @@
         UIViewController *schoolListViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"schoolListView"];
         [self.navigationController pushViewController:schoolListViewCtrl animated:YES];
     }
-    else {
+    else if(sender.tag == 1){
         UIViewController *famousViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"famousListView"];
         [self.navigationController pushViewController:famousViewCtrl animated:YES];
+    }else if (sender.tag == 2){// 按专业找工作
+        [self clickLog:@"14"];
+        UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
+        [self.navigationController pushViewController:industryCtrl animated:YES];
     }
 }
 

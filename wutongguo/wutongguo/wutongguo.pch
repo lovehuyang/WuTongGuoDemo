@@ -18,6 +18,7 @@
 #import "LoadingAnimationView.h"
 #import "CommonMacro.h"
 #import "SDAutoLayout.h"
+#import "CommonHeader.h"
 
 #define CP_CODE_KEY @"cpToken"// 企业账号——token
 #define CP_ACCOUNTID_KEY @"cpAccountID"// 企业账号——cpAccountID

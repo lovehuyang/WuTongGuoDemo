@@ -21,4 +21,5 @@
 + (BOOL) deptNumInputShouldNumber:(NSString *)str;
 + (CGFloat)stringWidth:(NSString *)str fontSize:(CGFloat)fontSize;
 + (NSString *)registerResult:(NSInteger)errorCode;
++ (NSDictionary *)translateJsonStrToDictionary:(NSString *)jsonStr;
 @end

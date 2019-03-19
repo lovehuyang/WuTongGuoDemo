@@ -25,6 +25,9 @@ extern NSString* const NetWebServiceRequestErrorDomain;
 + (id)cpServiceRequestUrl:(NSString *)method
                    params:(NSDictionary *)params
                       tag:(NSInteger)tag;
++ (id)cvServiceRequestUrl:(NSString *)method
+                   params:(NSDictionary *)params
+                      tag:(NSInteger)tag;
 
 //创建请求对象
 - (id)initWithUrl:(NSString *)WebURL

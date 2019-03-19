@@ -58,7 +58,7 @@
     if (!_dataArr) {
         
         NSArray *titleArr = [NSArray arrayWithObjects:@"企业名称",@"所在城市",@"联系人",@"手机号",@"电子邮箱",@"用户名",@"密码",@"确认密码", nil];
-        NSArray *placeholderArr = [NSArray arrayWithObjects:@"与营业执照名称一致",@"点击选择",@"点击输入",@"点击输入",@"点击输入",@"6-20位字符，字母/数字/横线/下划线/点",@"8-20位字符",@"点击输入", nil];
+        NSArray *placeholderArr = [NSArray arrayWithObjects:@"与营业执照名称一致",@"点击选择",@"点击输入",@"点击输入",@"点击输入",@"6-20位字符，字母/数字/横线/下划线/点",@"6-20位字符",@"点击输入", nil];
         NSArray *valuerArr = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"", nil];
         NSMutableArray *tempArr = [NSMutableArray array];
         for (int i = 0; i < titleArr.count; i ++) {
@@ -223,8 +223,8 @@
     }
     
     NSString *value3 = [self getDataWithTitle:@"密码"];
-    if (value3.length<8) {
-        [self.view.window makeToast:@"密码8-20个字符"];
+    if (value3.length<6) {
+        [self.view.window makeToast:@"密码6-20个字符"];
         return;
     }
     

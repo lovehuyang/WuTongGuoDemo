@@ -164,4 +164,16 @@
      */
     
 }
+
+/**
+ 把json字符串转成字典
+ 
+ @param jsonStr json字符串
+ @return 字典
+ */
++ (NSDictionary *)translateJsonStrToDictionary:(NSString *)jsonStr{
+    NSData *jsonData = [jsonStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    return resultDict;
+}
 @end
