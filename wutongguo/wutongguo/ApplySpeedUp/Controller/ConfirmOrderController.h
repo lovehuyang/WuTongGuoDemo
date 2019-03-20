@@ -12,5 +12,5 @@
 @property (nonatomic , strong) PaOrderPriceModel *model;
 @property (nonatomic , strong) NSString *myDiscount;// 我的抵扣金金额
 
-@property (nonatomic , copy)void (^sendbackOrderName)(BOOL paySuccess, NSDictionary *resultDict);
+@property (nonatomic , copy)void (^sendbackOrderName)(BOOL paySuccess, NSDictionary *resultDict,PaOrderPriceModel *model);
 @end

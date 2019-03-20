@@ -95,7 +95,8 @@
 - (void)setModel:(PaOrderPriceModel *)model{
     _model = model;
     
-    self.titleLab.text = [NSString stringWithFormat:@"%@天智能网申",_model.Days];
+    NSString *orderName = [_model.OrderType isEqualToString:@"1"]?@"智能网申":@"应聘优先";
+    self.titleLab.text = [NSString stringWithFormat:@"%@天%@",_model.Days,orderName];
     self.tipLab.text = [NSString stringWithFormat:@"推荐人才获得求职鼓励金可抵扣%@元",_model.MaxDiscount];
     self.nowPriceLab.text = [NSString stringWithFormat:@"%@元",model.Price];
 }

@@ -25,7 +25,6 @@
     self.title = @"求职加速";
     [self setupUI];
     
-    
     //分享
     UIButton *btnShare = [[UIButton alloc] initWithFrame:CGRectMake(31, 0, 25, 25)];
     [btnShare setBackgroundImage:[UIImage imageNamed:@"coShare.png"] forState:UIControlStateNormal];
@@ -275,11 +274,14 @@
 }
 
 - (void)buttonClick:(UIButton *)button{
-    if (button.tag == 100) {
+    if (button.tag == 100) {// 
         IntelligentApplyController *itv = [IntelligentApplyController new];
+        itv.ordertype = 1;// 1智能网申
         [self.navigationController pushViewController:itv animated:YES];
     }else{
-        
+        IntelligentApplyController *itv = [IntelligentApplyController new];
+        itv.ordertype = 2;// 2应聘优先
+        [self.navigationController pushViewController:itv animated:YES];
     }
 }
 

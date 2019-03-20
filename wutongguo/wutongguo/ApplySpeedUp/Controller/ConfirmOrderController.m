@@ -365,13 +365,13 @@
 
 - (void)wxpayFailed{
     
-    self.sendbackOrderName(NO, nil);
+    self.sendbackOrderName(NO, nil,nil);
     [self.navigationController popViewControllerAnimated:NO];
 }
 
 - (void)wxpaySuccess:(NSDictionary *)dict{
     
-    self.sendbackOrderName(YES,dict);
+    self.sendbackOrderName(YES,dict,self.model);
     [self.navigationController popViewControllerAnimated:NO];
 }
 
@@ -379,12 +379,12 @@
 
 - (void)alipayFailed{
     
-    self.sendbackOrderName(NO, nil);
+    self.sendbackOrderName(NO, nil,nil);
     [self.navigationController popViewControllerAnimated:NO];
 }
 - (void)alipaySuccess:(NSDictionary *)dict{
     
-    self.sendbackOrderName(YES,dict);
+    self.sendbackOrderName(YES,dict,self.model);
     [self.navigationController popViewControllerAnimated:NO];
 }
 

@@ -26,9 +26,13 @@
 #import "UIImageView+WebCache.h"
 #import "CvModifyViewController.h"
 #import "MyTalentsTestController.h"
+#import "MyOrderListController.h"
 
 @interface UserCenterViewController () <UITableViewDelegate, UITableViewDataSource, NetWebServiceRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MLImageCropDelegate>
-
+{
+    BOOL OrderType1;// 1 已开通智能网申
+    BOOL OrderType2;// 1 已开通应聘优先
+}
 @property (nonatomic, strong) NetWebServiceRequest *runningRequest;
 @property (nonatomic, strong) LoadingAnimationView *loadingView;
 @property (nonatomic, strong) NSArray *arrTitle;
@@ -42,12 +46,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    OrderType1 = NO;
+    OrderType2 = NO;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
 
-    self.arrTitle = @[@[ @"简历管理", @"网申记录", @"企业通知", @"我的关注"], @[@"网站消息", @"账户管理", @"我的测评",@"我要反馈", @"应用分享",@"切换身份"]];
-    self.titleImgArr = @[@[ @"ucButton1", @"ucButton2", @"ucButton3", @"ucButton4"], @[@"ucButton5", @"ucButton6", @"ucButton9" ,@"ucButton7", @"ucButton8",@"ucButton10"]];
+    self.arrTitle = @[@[ @"我的申请表", @"网申记录", @"企业通知", @"我的关注"], @[@"我的订单",@"网站消息", @"账户管理", @"我的测评",@"我要反馈", @"应用分享",@"切换身份"]];
+    self.titleImgArr = @[@[ @"ucButton1", @"ucButton2", @"ucButton3", @"ucButton4"], @[@"ucButton11",@"ucButton5", @"ucButton6", @"ucButton9" ,@"ucButton7", @"ucButton8",@"ucButton10"]];
     //头部的视图
     self.titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
     [self.titleView setBackgroundColor:[UIColor colorWithPatternImage: [UIImage imageNamed:@"ucIndexBg.png"]]];
@@ -75,6 +82,7 @@
     UIView *viewPhotoSelect = [self.viewPhoto.subviews objectAtIndex:0];
     [viewPhotoSelect.layer setMasksToBounds:YES];
     [viewPhotoSelect.layer setCornerRadius:5];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -132,6 +140,9 @@
         self.lbName.text = paData[@"Name"];
         self.lbMobile.text = paData[@"Mobile"];
         self.lbEmail.text = paData[@"Email"];
+        OrderType1 = [paData[@"OrderType1"] boolValue];
+        OrderType2 = [paData[@"OrderType2"] boolValue];
+        
         [USER_DEFAULT setValue:paData[@"Name"] forKey:@"Name"];
         [USER_DEFAULT setValue:paData[@"Mobile"] forKey:@"Mobile"];
         [USER_DEFAULT setValue:paData[@"Email"] forKey:@"Email"];
@@ -188,6 +199,7 @@
             [self.imgMobileCer setImage:[UIImage imageNamed:@"ucMobile.png"]];
             [self.btnMobileCer setTag:0];
         }
+        [self.tableView reloadData];
     }
     else if (request.tag == 2) {
         [self.view.window makeToast:@"头像上传成功"];
@@ -311,6 +323,47 @@
         [cell.contentView addSubview:[[CustomLabel alloc] initSeparate:cell.contentView]];
     //}
 //    self.iIndex = self.iIndex + 1;
+    
+    if(indexPath.section == 0 && indexPath.row == 0){
+        UILabel *OrderType1Lab = [UILabel new];
+        [cell.contentView addSubview:OrderType1Lab];
+        OrderType1Lab.sd_layout
+        .rightSpaceToView(imgArrow, 10)
+        .heightIs(22)
+        .widthIs(72)
+        .centerYEqualToView(imgArrow);
+        OrderType1Lab.layer.borderColor = NAVBARCOLOR.CGColor;
+        OrderType1Lab.layer.borderWidth = 0.8;
+        OrderType1Lab.sd_cornerRadius = @(11);
+        OrderType1Lab.text = @"智能网申";
+        OrderType1Lab.font = SMALLERFONT;
+        OrderType1Lab.textAlignment = NSTextAlignmentCenter;
+        OrderType1Lab.textColor = TEXTGRAYCOLOR;
+        
+        UILabel *OrderType2Lab = [UILabel new];
+        [cell.contentView addSubview:OrderType2Lab];
+        OrderType2Lab.sd_layout
+        .rightSpaceToView(OrderType1Lab, 5)
+        .heightRatioToView(OrderType1Lab, 1)
+        .widthRatioToView(OrderType1Lab, 1)
+        .centerYEqualToView(imgArrow);
+        OrderType2Lab.layer.borderColor = NAVBARCOLOR.CGColor;
+        OrderType2Lab.layer.borderWidth = 0.8;
+        OrderType2Lab.sd_cornerRadius = @(11);
+        OrderType2Lab.text = @"应聘优先";
+        OrderType2Lab.font = OrderType1Lab.font;
+        OrderType2Lab.textAlignment = NSTextAlignmentCenter;
+        OrderType2Lab.textColor = OrderType1Lab.textColor;
+        OrderType1Lab.hidden = !OrderType1;
+        OrderType2Lab.hidden = !OrderType2;
+        
+        if(OrderType1 == NO){
+            OrderType1Lab.hidden = YES;
+            OrderType2Lab.sd_layout
+            .rightSpaceToView(imgArrow, 10);
+            [OrderType2Lab updateLayout];
+        }
+    }
     return cell;
 }
 
@@ -319,12 +372,12 @@
     
     if(indexPath.section == 1){
         
-        if (indexPath.row == 3) {// 我要反馈
+        if (indexPath.row == 4) {// 我要反馈
             UIViewController *feedbackCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"feedbackView"];
             [self.navigationController pushViewController:feedbackCtrl animated:YES];
             return;
         }
-        if (indexPath.row == 4) {// 应用分享
+        if (indexPath.row == 5) {// 应用分享
             self.runningRequest = [NetWebServiceRequest serviceRequestUrl:@"GetShareTitle" params:[NSDictionary dictionaryWithObjectsAndKeys:@"212", @"pageID", @"", @"id", nil] tag:3];
             [self.runningRequest setDelegate:self];
             [self.runningRequest startAsynchronous];
@@ -332,7 +385,7 @@
         }
     }
     
-    if(indexPath.section == 1 && indexPath.row == 5){// 切换身份
+    if(indexPath.section == 1 && indexPath.row == 6){// 切换身份
         ExchangeRoleViewController *evc = [ExchangeRoleViewController new];
         evc.status = @"学生";
         [self.navigationController pushViewController:evc animated:YES];
@@ -362,14 +415,20 @@
         }
     }else if (indexPath.section == 1){
      
-        if (indexPath.row == 0) {// 网站消息
+        if (indexPath.row == 0) {
+            // 我的订单
+            MyOrderListController *mvc = [MyOrderListController new];
+            mvc.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:mvc animated:YES];
+        }
+        else if (indexPath.row == 1) {// 网站消息
             InformViewController *informCtrl = [[InformViewController alloc] init];
             [self.navigationController pushViewController:informCtrl animated:YES];
         }
-        else if (indexPath.row == 1) {// 账户管理
+        else if (indexPath.row == 2) {// 账户管理
             AccountManagerViewController *accountManagerCtrl = [[AccountManagerViewController alloc] init];
             [self.navigationController pushViewController:accountManagerCtrl animated:YES];
-        }else if(indexPath.row == 2){// 我的测评
+        }else if(indexPath.row == 3){// 我的测评
             MyTalentsTestController *mvc = [[MyTalentsTestController alloc]init];
             [self.navigationController pushViewController:mvc animated:YES];
         }

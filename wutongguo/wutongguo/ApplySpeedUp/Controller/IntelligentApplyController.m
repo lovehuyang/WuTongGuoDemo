@@ -15,6 +15,8 @@
 #import "CVPackageView.h"
 #import "CommonFunc.h"
 #import "ConfirmOrderController.h"
+#import "SpeedUpPaySuccessAlert.h"
+#import "AFNManager.h"
 
 @interface IntelligentApplyController ()<NetWebServiceRequestDelegate>
 @property (nonatomic , strong) UIScrollView *scrollView;
@@ -32,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"智能网申";
+    self.title = self.ordertype == 1? @"智能网申":@"应聘优先";
     [self getPaOrderPrice];
     //等待动画
     self.view.backgroundColor = [UIColor whiteColor];
@@ -75,10 +77,27 @@
             cvc.model = model;
             cvc.myDiscount = self.myDiscount;
             
-            cvc.sendbackOrderName = ^(BOOL paySuccess, NSDictionary *resultDict) {
+            cvc.sendbackOrderName = ^(BOOL paySuccess, NSDictionary *resultDict,PaOrderPriceModel *model) {
               
+                
+                NSString *content = @"请尽快填写一份完整申请表，留下您的个人信息和求职意向，以便于网站及时为您申请匹配的职位。";
+                
                 if (paySuccess) {
-                    [RCToast showMessage:@"支付成功"];
+                    NSString *orderName = [model.OrderType isEqualToString:@"1"]?@"智能网申":@"应聘优先";
+                    NSString *title = [NSString stringWithFormat:@"已为您成功开通 %@天%@服务",model.Days,orderName];
+                    NSString *markContent = [NSString stringWithFormat:@"%@天%@服务",model.Days,orderName];
+                    NSString *validTime = [NSString stringWithFormat:@"服务期限:%@至%@",resultDict[@"beginDate"],resultDict[@"endDate"]];
+                    BOOL IsCompleted = [resultDict[@"IsCompleted"] boolValue];
+                    IsCompleted = YES;
+                    SpeedUpPaySuccessAlert *alert = [SpeedUpPaySuccessAlert new];
+                    [alert setTitle:title markContent:markContent content:IsCompleted?@"":content btnTitle:IsCompleted?@"知道了":@"去填写申请表" validTime:validTime];
+                    alert.btnBlock = ^{
+                        if (!IsCompleted) {
+                            NSLog(@"去填写申请表");
+                        }
+                    };
+                    [alert show];
+                    
                 }else{
                     [RCToast showMessage:@"支付未成功，请重新下单支付"];
                 }
@@ -186,8 +205,9 @@
     [self.view endEditing:YES];
     [self.loadingView startAnimating];
     NSDictionary *paramDict = @{
-                                @"OrderType":@"1"
+                                @"OrderType":[NSString stringWithFormat:@"%ld",(long)self.ordertype]
                                 };
+    
     self.runningRequest = [NetWebServiceRequest cvServiceRequestUrl:@"GetPaOrderPrice" params:paramDict tag:1];
     [self.runningRequest setDelegate:self];
     [self.runningRequest startAsynchronous];
@@ -195,9 +215,17 @@
 
 - (void)getPaDiscount{
     NSDictionary *paramDict = @{
-                                @"PaMainID":[CommonFunc getPaMainId],
+                                @"pamainID":[CommonFunc getPaMainId],
                                 @"code":[CommonFunc getCode]
                                 };
+    
+//    [AFNManager requestPaWithParamDict:paramDict url:@"GetPaDiscount" tableNames:@[@"Table"] successBlock:^(NSArray *requestData, NSDictionary *dataDict) {
+//        NSLog(@"");
+//    } failureBlock:^(NSInteger errCode, NSString *msg) {
+//        NSLog(@"");
+//    }];
+//    return;
+    
     self.runningRequest = [NetWebServiceRequest cvServiceRequestUrl:@"GetPaDiscount" params:paramDict tag: 3];
     [self.runningRequest setDelegate:self];
     [self.runningRequest startAsynchronous];
@@ -218,9 +246,9 @@
         [self getPaDiscount];
     }else if (request.tag == 3){
         NSArray *dataArr = [CommonFunc getArrayFromXml:requestData tableName:@"Table"];
-        
-        NSString *myMoney = [NSString stringWithFormat:@"我的求职鼓励金:%@元",[[dataArr firstObject] objectForKey:@"Discount"]];
-        self.myDiscount = [[dataArr firstObject] objectForKey:@"Discount"];
+        NSString *discount = [[dataArr firstObject] objectForKey:@"Discount"]== nil?@"0":[[dataArr firstObject] objectForKey:@"Discount"];
+        NSString *myMoney = [NSString stringWithFormat:@"我的求职鼓励金:%@元",discount];
+        self.myDiscount = discount;
         NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc]initWithString:myMoney];
         NSRange range = [myMoney rangeOfString:@"我的求职鼓励金:"];
         [AttributedStr addAttribute:NSForegroundColorAttributeName value:TEXTGRAYCOLOR range:range];

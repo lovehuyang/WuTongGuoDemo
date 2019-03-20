@@ -1,12 +1,12 @@
 //
-//  ApplyWebViewController.m
+//  IntelligentApplyLogController.m
 //  wutongguo
 //
-//  Created by Lucifer on 15-5-9.
-//  Copyright (c) 2015年 Lucifer. All rights reserved.
+//  Created by Lucifer on 2019/3/20.
+//  Copyright © 2019年 Lucifer. All rights reserved.
 //
 
-#import "ApplyWebViewController.h"
+#import "IntelligentApplyLogController.h"
 #import "CommonMacro.h"
 #import "CommonFunc.h"
 #import "CustomButton.h"
@@ -20,8 +20,8 @@
 #import "CpJobDetailViewController.h"
 #import "ApplyFormViewController.h"
 
-@interface ApplyWebViewController () <UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NetWebServiceRequestDelegate>
-
+@interface IntelligentApplyLogController ()<UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NetWebServiceRequestDelegate>
+@property (strong, nonatomic) UITableView *tbView;
 @property (nonatomic, strong) PopupView *viewNoList;
 @property (nonatomic, strong) UIView *viewProcess;
 @property (nonatomic, strong) NetWebServiceRequest *runningRequest;
@@ -37,11 +37,12 @@
 @property (nonatomic) float contentHeight;
 @end
 
-@implementation ApplyWebViewController
+@implementation IntelligentApplyLogController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view addSubview:self.tbView];
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
     self.page = 1;
@@ -55,9 +56,15 @@
     [self getData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UITableView *)tbView{
+    if (!_tbView) {
+        
+        _tbView = [[UITableView alloc]initWithFrame:CGRectMake(0,10, SCREEN_WIDTH, SCREEN_HEIGHT - HEIGHT_STATUS_NAV - 44 - 10) style:UITableViewStylePlain];
+        _tbView.delegate =self;
+        _tbView.dataSource = self;
+        _tbView.tableFooterView = [UIView new];
+    }
+    return _tbView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -66,7 +73,9 @@
 
 - (void)getData {
     [self.loadingView startAnimating];
-    self.runningRequest = [NetWebServiceRequest serviceRequestUrl:@"GetApplyFormLogByPaMainID" params:[NSDictionary dictionaryWithObjectsAndKeys:[USER_DEFAULT objectForKey:@"paMainId"], @"paMainID", [NSString stringWithFormat:@"%ld", (long)self.page], @"pageNo", [USER_DEFAULT objectForKey:@"code"], @"code", nil] tag:1];
+    
+    NSDictionary *paramDict = [NSDictionary dictionaryWithObjectsAndKeys:[USER_DEFAULT objectForKey:@"paMainId"], @"paMainID", [NSString stringWithFormat:@"%ld", (long)self.page], @"pageNo", [USER_DEFAULT objectForKey:@"code"], @"code", nil];
+    self.runningRequest = [NetWebServiceRequest cvServiceRequestUrl:@"GetApplyFormLogSmartByPaMainID" params:paramDict tag:1];
     [self.runningRequest setDelegate:self];
     [self.runningRequest startAsynchronous];
 }
@@ -81,9 +90,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *oneData = [self.arrCompanyData objectAtIndex:indexPath.section];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellView1"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellView1"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellView2"];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellView2"];
     }
     for(UIView *view in cell.contentView.subviews) {
         [view removeFromSuperview];
@@ -166,7 +175,7 @@
             [imgProcess setImage:[UIImage imageNamed:@"ucNotViewProcess.png"]];
             [btnProcess addSubview:imgProcess];
         }
-
+        
         [viewJob addSubview:btnProcess];
         //机构
         content = [NSString stringWithFormat:@"机构：%@", [oneJob objectForKey:@"CpDeptName"]];
@@ -379,8 +388,8 @@
                             
                         }
                         else {
-                        CustomLabel *lbProcessDate = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(SCREEN_WIDTH - 70, VIEW_Y(lbProcess), 300, 20) content:[CommonFunc stringFromDateString:[[processDate objectAtIndex:0] objectForKey:@"AddDate"] formatType:@"yyyy-M-d"] size:12 color:TEXTGRAYCOLOR];
-                        [self.viewProcess addSubview:lbProcessDate];
+                            CustomLabel *lbProcessDate = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(SCREEN_WIDTH - 70, VIEW_Y(lbProcess), 300, 20) content:[CommonFunc stringFromDateString:[[processDate objectAtIndex:0] objectForKey:@"AddDate"] formatType:@"yyyy-M-d"] size:12 color:TEXTGRAYCOLOR];
+                            [self.viewProcess addSubview:lbProcessDate];
                         }
                     }
                 }

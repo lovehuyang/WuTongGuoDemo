@@ -9,6 +9,7 @@
 #import "ApplyLogViewController.h"
 #import "SCNavTabBarController.h"
 #import "EmailApplyLogViewController.h"
+#import "IntelligentApplyLogController.h"
 
 @interface ApplyLogViewController ()
 
@@ -27,8 +28,12 @@
     emailApplyLogCtrl.title = @"简历转发记录";
     //UIViewController *applyOtherCtrl = [storyBoard instantiateViewControllerWithIdentifier:@"applyOtherView"];
     //applyOtherCtrl.title = @"第三方网申记录";
+    IntelligentApplyLogController *ivc = [IntelligentApplyLogController new];
+    ivc.title = @"智能网申记录";
+    
+
     SCNavTabBarController *navTabCtrl = [[SCNavTabBarController alloc] init];
-    navTabCtrl.subViewControllers = @[applyWebCtrl, emailApplyLogCtrl];
+    navTabCtrl.subViewControllers = @[applyWebCtrl, emailApplyLogCtrl,ivc];
     navTabCtrl.scrollEnabled = YES;
     [navTabCtrl addParentController:self];
 }

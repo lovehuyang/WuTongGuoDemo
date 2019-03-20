@@ -239,7 +239,7 @@
 
 #pragma mark - 网申记录、企业通知、我的关注、求职加速
 - (void)buttonClick:(UIButton *)sender {
-    if (![CommonFunc checkLogin] && sender.tag < 3) {
+    if (![CommonFunc checkLogin] && sender.tag <= 3) {
         UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         [self.navigationController pushViewController:loginCtrl animated:YES];
         return;
