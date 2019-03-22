@@ -176,4 +176,23 @@
     NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     return resultDict;
 }
+
++ (NSString *)changeBeginFormatWithDateString:(NSString *)date{
+    //2019-01-04T17:54:00+08:00
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'+'ss:ss"];
+    NSDate *currentDate = [dateFormatter dateFromString:date];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *dateStr=[dateFormatter stringFromDate:currentDate];
+    return dateStr;
+}
++ (NSString *)changeFormatWithDateString:(NSString *)date{
+    //2019-01-07T09:43:58.233+08:00
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'+'ss:ss"];
+    NSDate *currentDate = [dateFormatter dateFromString:date];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *dateStr=[dateFormatter stringFromDate:currentDate];
+    return dateStr;
+}
 @end

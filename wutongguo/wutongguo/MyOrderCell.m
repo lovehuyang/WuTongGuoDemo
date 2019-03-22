@@ -116,7 +116,7 @@
 
      NSString *orderName = [_model.OrderType isEqualToString:@"1"]?@"智能网申":@"应聘优先";
     self.orderNameLab.text = [NSString stringWithFormat:@"%@天%@",_model.Days,orderName];
-    self.orderNumLab.text = [NSString stringWithFormat:@"订单号:%@",_model.PayOrderNum];
+    self.orderNumLab.text = [NSString stringWithFormat:@"订单号:%@",_model.Id];
     self.moneyLab.text = [NSString stringWithFormat:@"%@元",_model.Money];
     if (_model.Discount != nil && _model.Discount.length && ![_model.Discount isEqualToString:@"0"]) {
         self.discountMoneyLab.text = [NSString stringWithFormat:@"+%@元求职鼓励金",_model.Discount];

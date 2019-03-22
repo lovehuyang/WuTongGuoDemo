@@ -39,6 +39,7 @@
 @property (nonatomic, strong) NSArray              *arrJobData;
 @property (nonatomic, strong) NSArray              *arrCpBrochureData;
 @property (nonatomic, strong) NSArray              *arrRegionData;
+@property (nonatomic, strong) UIView *viewImageButton;// 存放高校查询行业名企你的菜
 @end
 
 @implementation IndexViewController
@@ -150,10 +151,21 @@
     
     //高校查询、行业名企、按专业找工作 图片按钮
     UIView *viewImageButton = [[UIView alloc] initWithFrame:CGRectMake(0, VIEW_BY(self.viewBottom) + 10, SCREEN_WIDTH, (SCREEN_WIDTH / 2) * 0.356)];
+    self.viewImageButton = viewImageButton;
     [self.viewScroll addSubview:viewImageButton];
     for (int i = 0; i < 3; i++) {
         UIButton *btnImage = [[UIButton alloc] initWithFrame:CGRectMake(i * (VIEW_W(viewImageButton) / 3), 0, (VIEW_W(viewImageButton) / 3), VIEW_H(viewImageButton))];
-        [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"index_imagebutton%d.png", (i + 1)]] forState:UIControlStateNormal];
+        if(i == 2){
+            
+            if ([CommonFunc checkLogin]) {// 登录状态.你的菜
+                [btnImage setImage:[UIImage imageNamed:@"index_imagebutton4"] forState:UIControlStateNormal];
+            }else{// 未登录状态。按专业找工作
+                 [btnImage setImage:[UIImage imageNamed:@"index_imagebutton3"] forState:UIControlStateNormal];
+            }
+        }else{
+            [btnImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"index_imagebutton%d.png", (i + 1)]] forState:UIControlStateNormal];
+        }
+    
         [btnImage setTag:i];
         [btnImage addTarget:self action:@selector(imageButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [viewImageButton addSubview:btnImage];
@@ -191,7 +203,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+    UIButton *btn = (UIButton *)[self.viewImageButton viewWithTag:2];
     if (![CommonFunc checkLogin]) {// 没有登录
+        // 未登录状态是按专业找工作
+        [btn setImage:[UIImage imageNamed:@"index_imagebutton3"] forState:UIControlStateNormal];
         for (UIView *childView in self.viewBottom.subviews) {
             if ([childView isKindOfClass:[UIButton class]]) {
                 if (childView.tag == 4) {
@@ -210,6 +225,10 @@
                 }
             }
         }
+    }else{
+        // 已经登录，你的菜
+        [btn setImage:[UIImage imageNamed:@"index_imagebutton4"] forState:UIControlStateNormal];
+        [self getData];
     }
 }
 
@@ -273,8 +292,7 @@
         ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
         [self.navigationController pushViewController:apvc animated:YES];
 //        [self clickLog:@"15"];
-//        LikeListViewController *likeListCtrl = [[LikeListViewController alloc] init];
-//        [self.navigationController pushViewController:likeListCtrl animated:YES];
+
     }
 }
 
@@ -339,6 +357,7 @@
         NSDictionary *countData = [[CommonFunc getArrayFromXml:requestData tableName:@"Table"] objectAtIndex:0];
         NSDictionary *noProcessCountData = [[CommonFunc getArrayFromXml:requestData tableName:@"dtNoViewCnt"] objectAtIndex:0];
         for (int i = 0; i < 4; i++) {
+            [countData setValue:@"2" forKey:@"Column4"];
             if ([[countData objectForKey:[NSString stringWithFormat:@"Column%d", i + 1]] intValue] > -1) {
                 for (UIView *childView in self.viewBottom.subviews) {
                     if ([childView isKindOfClass:[UIButton class]] && childView.tag == i) {
@@ -600,9 +619,16 @@
         UIViewController *famousViewCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"famousListView"];
         [self.navigationController pushViewController:famousViewCtrl animated:YES];
     }else if (sender.tag == 2){// 按专业找工作
-        [self clickLog:@"14"];
-        UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
-        [self.navigationController pushViewController:industryCtrl animated:YES];
+        
+        if([CommonFunc checkLogin]){// 登录。你的菜
+            // 猜你喜欢
+            LikeListViewController *likeListCtrl = [[LikeListViewController alloc] init];
+            [self.navigationController pushViewController:likeListCtrl animated:YES];
+        }else{// 未登录。按专业找工作
+            [self clickLog:@"14"];
+            UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
+            [self.navigationController pushViewController:industryCtrl animated:YES];
+        }
     }
 }
 

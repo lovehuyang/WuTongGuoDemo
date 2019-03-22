@@ -16,7 +16,9 @@
 #import "CommonFunc.h"
 #import "ConfirmOrderController.h"
 #import "SpeedUpPaySuccessAlert.h"
+#import "PaSpreadLogController.h"
 #import "AFNManager.h"
+#import "CvModifyViewController.h"
 
 @interface IntelligentApplyController ()<NetWebServiceRequestDelegate>
 @property (nonatomic , strong) UIScrollView *scrollView;
@@ -35,11 +37,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = self.ordertype == 1? @"智能网申":@"应聘优先";
-    [self getPaOrderPrice];
     //等待动画
     self.view.backgroundColor = [UIColor whiteColor];
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
-    [self.scrollView addSubview:self.loadingView];
+    [self.view addSubview:self.loadingView];
+    
+    [self getPaOrderPrice];
 }
 
 - (NSMutableArray *)dataArr{
@@ -88,12 +91,15 @@
                     NSString *markContent = [NSString stringWithFormat:@"%@天%@服务",model.Days,orderName];
                     NSString *validTime = [NSString stringWithFormat:@"服务期限:%@至%@",resultDict[@"beginDate"],resultDict[@"endDate"]];
                     BOOL IsCompleted = [resultDict[@"IsCompleted"] boolValue];
-                    IsCompleted = YES;
                     SpeedUpPaySuccessAlert *alert = [SpeedUpPaySuccessAlert new];
                     [alert setTitle:title markContent:markContent content:IsCompleted?@"":content btnTitle:IsCompleted?@"知道了":@"去填写申请表" validTime:validTime];
                     alert.btnBlock = ^{
                         if (!IsCompleted) {
-                            NSLog(@"去填写申请表");
+                            CvModifyViewController *cvModifyCtrl = [[CvModifyViewController alloc] init];
+                            [self.navigationController pushViewController:cvModifyCtrl animated:YES];
+                        }else{
+                            CvModifyViewController *cvModifyCtrl = [[CvModifyViewController alloc] init];
+                            [self.navigationController pushViewController:cvModifyCtrl animated:YES];
                         }
                     };
                     [alert show];
@@ -130,7 +136,17 @@
     myMoneyLab.font = DEFAULTFONT;
     myMoneyLab.textAlignment  = NSTextAlignmentRight;
     myMoneyLab.textColor = [UIColor colorWithHex:0xFF0015];
+    myMoneyLab.userInteractionEnabled = YES;
     self.myMoneyLab = myMoneyLab;
+    UIButton *myMoneyBtn = [UIButton new];
+    [self.myMoneyLab addSubview:myMoneyBtn];
+    myMoneyBtn.sd_layout
+    .rightSpaceToView(self.myMoneyLab, 0)
+    .centerYEqualToView(self.myMoneyLab)
+    .heightRatioToView(self.myMoneyLab, 1)
+    .widthIs(30);
+    [myMoneyBtn addTarget:self action:@selector(checkMyMoney) forControlEvents:UIControlEventTouchUpInside];
+    
     
     // 说明
     UILabel *tipLab = [UILabel new];
@@ -215,16 +231,9 @@
 
 - (void)getPaDiscount{
     NSDictionary *paramDict = @{
-                                @"pamainID":[CommonFunc getPaMainId],
+                                @"paMainID":[CommonFunc getPaMainId],
                                 @"code":[CommonFunc getCode]
                                 };
-    
-//    [AFNManager requestPaWithParamDict:paramDict url:@"GetPaDiscount" tableNames:@[@"Table"] successBlock:^(NSArray *requestData, NSDictionary *dataDict) {
-//        NSLog(@"");
-//    } failureBlock:^(NSInteger errCode, NSString *msg) {
-//        NSLog(@"");
-//    }];
-//    return;
     
     self.runningRequest = [NetWebServiceRequest cvServiceRequestUrl:@"GetPaDiscount" params:paramDict tag: 3];
     [self.runningRequest setDelegate:self];
@@ -260,5 +269,11 @@
 - (void)buttonClick{
     
     [CommonFunc share:@"我即将找到工作，就差你的鼓励了！" content:@"我即将找到工作，就差你的鼓励了！" url:@"http://m.wutongguo.com/Personal/Account/IntelligenceApplication?SpreadPamainid=502124" view:self.view imageUrl:@"" content2:@"我即将找到工作，就差你的鼓励了"];
+}
+
+#pragma mark - 查看我的求职鼓励金
+- (void)checkMyMoney{
+    PaSpreadLogController *pvc = [PaSpreadLogController new];
+    [pvc show:self];
 }
 @end

@@ -263,6 +263,7 @@
 		998194E01B229A4800468B38 /* yindaonavhigh.png in Resources */ = {isa = PBXBuildFile; fileRef = 998194DE1B229A4800468B38 /* yindaonavhigh.png */; };
 		998194E21B22C46900468B38 /* coMapClose.png in Resources */ = {isa = PBXBuildFile; fileRef = 998194E11B22C46900468B38 /* coMapClose.png */; };
 		998354B91E7A14F500C3CAD2 /* MajorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 998354B81E7A14F500C3CAD2 /* MajorSearchViewController.m */; };
+		998764E22244DCE300B87985 /* index_imagebutton4.png in Resources */ = {isa = PBXBuildFile; fileRef = 998764E12244DCE200B87985 /* index_imagebutton4.png */; };
 		99882AC3221D3537002152AA /* MyTalentsTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99882AC2221D3537002152AA /* MyTalentsTestController.m */; };
 		99882AC6221D388A002152AA /* CommonToos.m in Sources */ = {isa = PBXBuildFile; fileRef = 99882AC5221D388A002152AA /* CommonToos.m */; };
 		998C5D6B2228D4410019CED0 /* ucButton10.png in Resources */ = {isa = PBXBuildFile; fileRef = 998C5D6A2228D4400019CED0 /* ucButton10.png */; };
@@ -381,6 +382,9 @@
 		99B5A1FB1CD834D100F6F64C /* ucButton6.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B5A1F41CD834D100F6F64C /* ucButton6.png */; };
 		99B5A1FC1CD834D100F6F64C /* ucButton7.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B5A1F51CD834D100F6F64C /* ucButton7.png */; };
 		99BBB0AB1B7637EE0044A032 /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BBB0AA1B7637EE0044A032 /* head.png */; };
+		99BC61582243192700DFB3D0 /* PaSpreadLogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BC61572243192700DFB3D0 /* PaSpreadLogController.m */; };
+		99BC615B22432AEA00DFB3D0 /* PaSpreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BC615A22432AEA00DFB3D0 /* PaSpreadModel.m */; };
+		99BC615E22432B7600DFB3D0 /* PaSpreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BC615D22432B7600DFB3D0 /* PaSpreadCell.m */; };
 		99BC721D1DDEF93A00A2AEBD /* ico_cpmain_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BC721B1DDEF93A00A2AEBD /* ico_cpmain_top.png */; };
 		99BC72201DDF009200A2AEBD /* coUnFavoriteBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BC721F1DDF009200A2AEBD /* coUnFavoriteBlue.png */; };
 		99BC72251DE29AF400A2AEBD /* pic_cfsj500.png in Resources */ = {isa = PBXBuildFile; fileRef = 99BC72211DE29AF400A2AEBD /* pic_cfsj500.png */; };
@@ -824,6 +828,7 @@
 		998194E11B22C46900468B38 /* coMapClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coMapClose.png; sourceTree = "<group>"; };
 		998354B71E7A14F500C3CAD2 /* MajorSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MajorSearchViewController.h; sourceTree = "<group>"; };
 		998354B81E7A14F500C3CAD2 /* MajorSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MajorSearchViewController.m; sourceTree = "<group>"; };
+		998764E12244DCE200B87985 /* index_imagebutton4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = index_imagebutton4.png; sourceTree = "<group>"; };
 		99882AC1221D3537002152AA /* MyTalentsTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTalentsTestController.h; sourceTree = "<group>"; };
 		99882AC2221D3537002152AA /* MyTalentsTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTalentsTestController.m; sourceTree = "<group>"; };
 		99882AC4221D388A002152AA /* CommonToos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonToos.h; sourceTree = "<group>"; };
@@ -1014,6 +1019,12 @@
 		99B5A1F41CD834D100F6F64C /* ucButton6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ucButton6.png; sourceTree = "<group>"; };
 		99B5A1F51CD834D100F6F64C /* ucButton7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ucButton7.png; sourceTree = "<group>"; };
 		99BBB0AA1B7637EE0044A032 /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		99BC61562243192700DFB3D0 /* PaSpreadLogController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaSpreadLogController.h; sourceTree = "<group>"; };
+		99BC61572243192700DFB3D0 /* PaSpreadLogController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaSpreadLogController.m; sourceTree = "<group>"; };
+		99BC615922432AEA00DFB3D0 /* PaSpreadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaSpreadModel.h; sourceTree = "<group>"; };
+		99BC615A22432AEA00DFB3D0 /* PaSpreadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaSpreadModel.m; sourceTree = "<group>"; };
+		99BC615C22432B7600DFB3D0 /* PaSpreadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaSpreadCell.h; sourceTree = "<group>"; };
+		99BC615D22432B7600DFB3D0 /* PaSpreadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaSpreadCell.m; sourceTree = "<group>"; };
 		99BC721B1DDEF93A00A2AEBD /* ico_cpmain_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_cpmain_top.png; sourceTree = "<group>"; };
 		99BC721F1DDF009200A2AEBD /* coUnFavoriteBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coUnFavoriteBlue.png; sourceTree = "<group>"; };
 		99BC72211DE29AF400A2AEBD /* pic_cfsj500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_cfsj500.png; sourceTree = "<group>"; };
@@ -1446,6 +1457,8 @@
 				99558D5F22409ACD00B630BB /* IntelligentApplyController.m */,
 				99AC758B2240D98100D4A418 /* ConfirmOrderController.h */,
 				99AC758C2240D98100D4A418 /* ConfirmOrderController.m */,
+				99BC61562243192700DFB3D0 /* PaSpreadLogController.h */,
+				99BC61572243192700DFB3D0 /* PaSpreadLogController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1457,6 +1470,8 @@
 				99AC75982240E51900D4A418 /* PayWayModel.m */,
 				99558D612240A0C200B630BB /* PaOrderPriceModel.h */,
 				99558D622240A0C200B630BB /* PaOrderPriceModel.m */,
+				99BC615922432AEA00DFB3D0 /* PaSpreadModel.h */,
+				99BC615A22432AEA00DFB3D0 /* PaSpreadModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1476,6 +1491,8 @@
 				99558D5C22408D0B00B630BB /* ApplySpeedUpTipLab.m */,
 				999323082241CE7D00374680 /* SpeedUpPaySuccessAlert.h */,
 				999323092241CE7D00374680 /* SpeedUpPaySuccessAlert.m */,
+				99BC615C22432B7600DFB3D0 /* PaSpreadCell.h */,
+				99BC615D22432B7600DFB3D0 /* PaSpreadCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1567,6 +1584,7 @@
 				99558D5022407EBF00B630BB /* index_imagebutton1.png */,
 				99558D4F22407EBE00B630BB /* index_imagebutton2.png */,
 				99558D4E22407EBE00B630BB /* index_imagebutton3.png */,
+				998764E12244DCE200B87985 /* index_imagebutton4.png */,
 				99D6407B2224D6A6009BDD96 /* return_gray_Arrow.png */,
 				99343A4F1DE92495005BDA71 /* bg_company_top.jpg */,
 				99343A501DE92495005BDA71 /* img_company_Attention.png */,
@@ -2381,6 +2399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				999878AF1B5B49B000F62165 /* LaunchScreen.xib in Resources */,
+				998764E22244DCE300B87985 /* index_imagebutton4.png in Resources */,
 				999878AE1B5B49A900F62165 /* Main.storyboard in Resources */,
 				99558D5122407EBF00B630BB /* index_imagebutton3.png in Resources */,
 				99BC72271DE29AF400A2AEBD /* pic_myqy500.png in Resources */,
@@ -2708,6 +2727,7 @@
 				997221E21AFC9999006E3A84 /* GetPsdStepTwoViewController.m in Sources */,
 				9998E2051B06D1E700D0691B /* CpMainViewController.m in Sources */,
 				990EEF091C4291D9002D01C3 /* CpJobListViewController.m in Sources */,
+				99BC61582243192700DFB3D0 /* PaSpreadLogController.m in Sources */,
 				99D7A7FC2223D94100B330DC /* WTGRootViewController.m in Sources */,
 				997969F81AF9BD7D00722F2F /* MobileRegViewController.m in Sources */,
 				9998E2081B06E1E900D0691B /* CpBrochureListViewController.m in Sources */,
@@ -2751,6 +2771,7 @@
 				997969F51AF9BD7300722F2F /* EmailRegViewController.m in Sources */,
 				99FE93821B50EF5B00C28F55 /* VideoViewController.m in Sources */,
 				99A166D91B0B6DE500BA9841 /* ASIAuthenticationDialog.m in Sources */,
+				99BC615E22432B7600DFB3D0 /* PaSpreadCell.m in Sources */,
 				99D65D4622267D5600AC7B79 /* WKLabel.m in Sources */,
 				998175161B1A9A3500BDB47A /* RecruitmentViewController.m in Sources */,
 				99E3CF8F1C4E0C8400B8D771 /* EmailApplyLogViewController.m in Sources */,
@@ -2761,6 +2782,7 @@
 				9981753C1B1D95AB00BDB47A /* NoticeViewController.m in Sources */,
 				99174EF81B1472C500CABF5A /* UIImage+MultiFormat.m in Sources */,
 				997969F11AF9BCDD00722F2F /* SCNavTabBar.m in Sources */,
+				99BC615B22432AEA00DFB3D0 /* PaSpreadModel.m in Sources */,
 				99B22B371AFF979000641FF4 /* PasswordModifyViewController.m in Sources */,
 				991F33091B008A230030AA71 /* FMDatabasePool.m in Sources */,
 				996B5CE81AFDE6CB009469D1 /* ApplyLogViewController.m in Sources */,

@@ -48,6 +48,7 @@
     // Do any additional setup after loading the view.
     OrderType1 = NO;
     OrderType2 = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
@@ -105,6 +106,10 @@
         [self.lbMobileCer setTextColor:NAVBARCOLOR];
         [self.imgMobileCer setImage:[UIImage imageNamed:@"ucMobile.png"]];
         [self.btnMobileCer setTag:0];
+        
+        OrderType1 = NO;
+        OrderType2 = NO;
+        [self.tableView reloadData];
     }
 }
 
@@ -307,7 +312,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellView" forIndexPath:indexPath];
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    
     UIImageView *imgButton = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 25, 25)];
     [imgButton setImage:[UIImage imageNamed:self.titleImgArr[indexPath.section][indexPath.row]]];
     [cell.contentView addSubview:imgButton];

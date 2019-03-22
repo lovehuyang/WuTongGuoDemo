@@ -58,6 +58,7 @@
      self.cvTitleLab.text = [NSString stringWithFormat:@"求职鼓励金%.2f元",[_discount floatValue]];
 }
 - (void)selectClick:(UIButton *)button{
+    self.selectBtn.selected = !self.selectBtn.selected;
     self.selectDiscountBlock(button.selected);
 }
 

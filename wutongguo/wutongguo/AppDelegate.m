@@ -396,4 +396,7 @@
 }
 
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    [application registerForRemoteNotifications];
+}
 @end

@@ -26,13 +26,13 @@
     [self setupUI];
     
     //分享
-    UIButton *btnShare = [[UIButton alloc] initWithFrame:CGRectMake(31, 0, 25, 25)];
-    [btnShare setBackgroundImage:[UIImage imageNamed:@"coShare.png"] forState:UIControlStateNormal];
-    [btnShare addTarget:self action:@selector(shareClick) forControlEvents:UIControlEventTouchUpInside];
-    UIView *viewRightItem = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 21, 25)];
-    [viewRightItem setFrame:CGRectMake(0, 0, 60, 25)];
-    [viewRightItem addSubview:btnShare];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewRightItem];
+//    UIButton *btnShare = [[UIButton alloc] initWithFrame:CGRectMake(31, 0, 25, 25)];
+//    [btnShare setBackgroundImage:[UIImage imageNamed:@"coShare.png"] forState:UIControlStateNormal];
+//    [btnShare addTarget:self action:@selector(shareClick) forControlEvents:UIControlEventTouchUpInside];
+//    UIView *viewRightItem = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 21, 25)];
+//    [viewRightItem setFrame:CGRectMake(0, 0, 60, 25)];
+//    [viewRightItem addSubview:btnShare];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewRightItem];
 }
 
 - (void)setupUI{

@@ -40,9 +40,9 @@
     self.title = @"确认订单";
     payMethodID = 2;//
     [self createUI];
-    [self createBottomView];
     self.view.backgroundColor = [UIColor colorWithHex:0xF2F3F3];
     [self.view addSubview:self.tableView];
+    [self createBottomView];
     
     self.loadingView = [[LoadingAnimationView alloc] initLoading];
     [self.view addSubview:self.loadingView];
@@ -99,7 +99,7 @@
     priceLab.textColor = [UIColor colorWithHex:0xFF8117];
     priceLab.textAlignment = NSTextAlignmentRight;
     priceLab.text = [NSString stringWithFormat:@"￥%@",self.model.Price];
-    priceLab.font = DEFAULTFONT;
+    priceLab.font = [UIFont boldSystemFontOfSize:BIGGERFONTSIZE];
     priceLab.backgroundColor = [UIColor whiteColor];
 }
 - (UITableView *)tableView{
@@ -213,6 +213,7 @@
         cell.discount = self.validDiscount;
         cell.selectDiscountBlock = ^(BOOL useDiscount) {
             _useDiscount = useDiscount;
+            [self createBottomView];
         };
         return cell;
         
@@ -246,7 +247,7 @@
 - (CGFloat)payTotalMoney{
     // 计算优惠的金额
     CGFloat price = [self.model.Price floatValue];
-    CGFloat validPrcie = [self.validDiscount floatValue];
+    CGFloat validPrcie = _useDiscount? [self.validDiscount floatValue]:0;
     // 计算应付的金额
     CGFloat totalMoney = price - validPrcie;
     return totalMoney;

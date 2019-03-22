@@ -22,4 +22,6 @@
 + (CGFloat)stringWidth:(NSString *)str fontSize:(CGFloat)fontSize;
 + (NSString *)registerResult:(NSInteger)errorCode;
 + (NSDictionary *)translateJsonStrToDictionary:(NSString *)jsonStr;
++ (NSString *)changeBeginFormatWithDateString:(NSString *)date;
++ (NSString *)changeFormatWithDateString:(NSString *)date;
 @end

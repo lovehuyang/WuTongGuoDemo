@@ -4,7 +4,7 @@
 //
 //  Created by Lucifer on 15-5-4.
 //  Copyright (c) 2015年 Lucifer. All rights reserved.
-//
+//  猜你喜欢
 
 #import "LikeListViewController.h"
 #import "CompanyViewController.h"
@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"猜你喜欢";
+    self.title = @"你的菜儿";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT + STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT) style:UITableViewStyleGrouped];
     [self.tableView setDelegate:self];

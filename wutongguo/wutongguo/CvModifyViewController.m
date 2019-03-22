@@ -38,7 +38,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.title = @"申请表填写";
+    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     if ([webView canGoBack]) {
         if (self.leftBarItem == nil) {
             self.leftBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu-back.png"] style:UIBarButtonItemStyleDone target:self action:@selector(viewPop)];
@@ -51,6 +51,9 @@
             [self.navigationItem.leftBarButtonItem setAction:@selector(viewPop)];
         }
     }
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"$('a:first').remove()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"$('header').remove()"];
 }
 
 - (void)webGoBack {
