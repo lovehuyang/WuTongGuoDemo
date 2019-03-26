@@ -432,6 +432,7 @@
 		99DA4FD41B24233C00F7739C /* MobileCerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DA4FD31B24233C00F7739C /* MobileCerViewController.m */; };
 		99DA4FD61B242B9B00F7739C /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FADA01AFCAC66003C10B8 /* UserCenterViewController.m */; };
 		99DC71221B54A27A00C8A68E /* coDefaultLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DC71211B54A27A00C8A68E /* coDefaultLogo.png */; };
+		99DD0FD72245F4C100639F9F /* ProtocolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DD0FD52245F4C100639F9F /* ProtocolView.m */; };
 		99E3CF8C1C4DD07B00B8D771 /* ApplyFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CF8B1C4DD07B00B8D771 /* ApplyFormViewController.m */; };
 		99E3CF8F1C4E0C8400B8D771 /* EmailApplyLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CF8E1C4E0C8300B8D771 /* EmailApplyLogViewController.m */; };
 		99E8530B1B03439B00AE0044 /* coGreenPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E8530A1B03439B00AE0044 /* coGreenPoint.png */; };
@@ -1096,6 +1097,8 @@
 		99DA4FD21B24233C00F7739C /* MobileCerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobileCerViewController.h; sourceTree = "<group>"; };
 		99DA4FD31B24233C00F7739C /* MobileCerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MobileCerViewController.m; sourceTree = "<group>"; };
 		99DC71211B54A27A00C8A68E /* coDefaultLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coDefaultLogo.png; sourceTree = "<group>"; };
+		99DD0FD52245F4C100639F9F /* ProtocolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolView.m; sourceTree = "<group>"; };
+		99DD0FD62245F4C100639F9F /* ProtocolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolView.h; sourceTree = "<group>"; };
 		99E3CF8A1C4DD07B00B8D771 /* ApplyFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFormViewController.h; sourceTree = "<group>"; };
 		99E3CF8B1C4DD07B00B8D771 /* ApplyFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFormViewController.m; sourceTree = "<group>"; };
 		99E3CF8D1C4E0C8300B8D771 /* EmailApplyLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailApplyLogViewController.h; sourceTree = "<group>"; };
@@ -1479,6 +1482,8 @@
 		99558D572240867800B630BB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				99DD0FD62245F4C100639F9F /* ProtocolView.h */,
+				99DD0FD52245F4C100639F9F /* ProtocolView.m */,
 				99AC759A2240E64900D4A418 /* DiscountCell.h */,
 				99AC759B2240E64900D4A418 /* DiscountCell.m */,
 				99AC75942240E46B00D4A418 /* PayWayCell.h */,
@@ -2782,6 +2787,7 @@
 				9981753C1B1D95AB00BDB47A /* NoticeViewController.m in Sources */,
 				99174EF81B1472C500CABF5A /* UIImage+MultiFormat.m in Sources */,
 				997969F11AF9BCDD00722F2F /* SCNavTabBar.m in Sources */,
+				99DD0FD72245F4C100639F9F /* ProtocolView.m in Sources */,
 				99BC615B22432AEA00DFB3D0 /* PaSpreadModel.m in Sources */,
 				99B22B371AFF979000641FF4 /* PasswordModifyViewController.m in Sources */,
 				991F33091B008A230030AA71 /* FMDatabasePool.m in Sources */,

@@ -19,6 +19,7 @@
 #import "PaSpreadLogController.h"
 #import "AFNManager.h"
 #import "CvModifyViewController.h"
+#import "ProtocolView.h"
 
 @interface IntelligentApplyController ()<NetWebServiceRequestDelegate>
 @property (nonatomic , strong) UIScrollView *scrollView;
@@ -191,7 +192,7 @@
     .rightEqualToView(tipLab)
     .topSpaceToView(separateView, 20)
     .autoHeightRatio(0);
-    lable1.font = [UIFont boldSystemFontOfSize:SMALLERFONTSIZE];
+    lable1.font = [UIFont boldSystemFontOfSize:DEFAULTFONTSIZE];
     lable1.text = @"特别说明：";
     
     // 说明
@@ -199,18 +200,41 @@
     [self.scrollView addSubview:lable2];
     lable2.sd_layout
     .leftEqualToView(lable1)
-    .rightEqualToView(lable1)
     .topSpaceToView(lable1, 5)
     .autoHeightRatio(0);
+    [lable2 setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH - 30];
     lable2.font = DEFAULTFONT;
     lable2.textColor = TEXTGRAYCOLOR;
-    lable2.text = @"1、购买前请认真阅读《用户协议》\n2、对服务有任何疑问或索要发票等事宜，请于每周一到周日8:30-17:30拨打客服热线400-626-5151转1";
-    [self.scrollView setupAutoContentSizeWithBottomView:lable2 bottomMargin:20];
+    lable2.text = @"1、购买前请认真阅读《用户协议》";
+    lable2.userInteractionEnabled = YES;
+    
+    CGFloat Btn_W = [CommonToos calculateStrWidth:@"《用户协议》" fontSize:DEFAULTFONTSIZE];
+    UIButton *btn = [UIButton new];
+    [lable2 addSubview:btn];
+    btn.sd_layout
+    .rightSpaceToView(lable2, 0)
+    .centerYEqualToView(lable2)
+    .heightRatioToView(lable2, 1)
+    .widthIs(Btn_W);
+    [btn addTarget:self action:@selector(checkUserProtocol) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *lable3 = [UILabel new];
+    [self.scrollView addSubview:lable3];
+    lable3.sd_layout
+    .leftEqualToView(lable1)
+    .rightEqualToView(lable1)
+    .topSpaceToView(lable2, 3)
+    .autoHeightRatio(0);
+    lable3.font = lable2.font;
+    lable3.textColor = lable2.textColor;
+    lable3.text = @"2、对服务有任何疑问或索要发票等事宜，请于每周一到周日8:30-17:30拨打客服热线400-626-5151转1";
+    
+    [self.scrollView setupAutoContentSizeWithBottomView:lable3 bottomMargin:20];
     
     UIView *bottomView = [UIView new];
     [self.scrollView addSubview:bottomView];
     bottomView.sd_layout
-    .topSpaceToView(lable2, 20)
+    .topSpaceToView(lable3, 20)
     .rightSpaceToView(self.scrollView, 0)
     .leftSpaceToView(self.scrollView, 0)
     .heightIs(500);
@@ -268,12 +292,23 @@
 #pragma mark - 分享
 - (void)buttonClick{
     
-    [CommonFunc share:@"我即将找到工作，就差你的鼓励了！" content:@"我即将找到工作，就差你的鼓励了！" url:@"http://m.wutongguo.com/Personal/Account/IntelligenceApplication?SpreadPamainid=502124" view:self.view imageUrl:@"" content2:@"我即将找到工作，就差你的鼓励了"];
+    if (self.ordertype == 1) {// 智能网申
+        [CommonFunc share:@"亲，需要你的鼓励哦" content:@"梧桐果汇聚了“全、新、准、真”校招信息，分享给你，一起加速求职。" url:@"http://m.wutongguo.com/Personal/Account/IntelligenceApplication?SpreadPamainid=502124" view:self.view imageUrl:@"" content2:@"梧桐果汇聚了“全、新、准、真”校招信息，分享给你，一起加速求职。"];
+    }else{// 应聘优先
+     
+        [CommonFunc share:@"亲，需要你的鼓励哦" content:@"梧桐果汇聚了“全、新、准、真”校招信息，分享给你，一起加速求职。" url:@"http://m.wutongguo.com/Personal/Account/ApplicationFirst?SpreadPamainid=469071" view:self.view imageUrl:@"" content2:@"梧桐果汇聚了“全、新、准、真”校招信息，分享给你，一起加速求职。"];
+    }
 }
 
 #pragma mark - 查看我的求职鼓励金
 - (void)checkMyMoney{
     PaSpreadLogController *pvc = [PaSpreadLogController new];
     [pvc show:self];
+}
+
+#pragma mark - 查看用户协议
+- (void)checkUserProtocol{
+    ProtocolView *view = [ProtocolView new];
+    [view show];
 }
 @end

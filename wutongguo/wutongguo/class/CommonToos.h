@@ -24,4 +24,5 @@
 + (NSDictionary *)translateJsonStrToDictionary:(NSString *)jsonStr;
 + (NSString *)changeBeginFormatWithDateString:(NSString *)date;
 + (NSString *)changeFormatWithDateString:(NSString *)date;
++ (CGFloat)calculateStrWidth:(NSString *)contentStr fontSize:(CGFloat)fontSize;
 @end

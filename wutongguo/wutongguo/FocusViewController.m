@@ -51,19 +51,20 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu-back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+    }else{
+        self.navigationItem.leftBarButtonItem=nil;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)rebackToRootViewAction {
+    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@""forKey:@"push"];
+    [pushJudge synchronize];//记得立即同步
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
 
 @end

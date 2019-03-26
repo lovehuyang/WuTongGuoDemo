@@ -80,10 +80,6 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:viewRightItem];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:true];
     [self.viewPopup popupClose];
@@ -337,4 +333,20 @@
     [self.runningRequest startAsynchronous];
 }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+    if([[pushJudge objectForKey:@"push"]isEqualToString:@"push"]) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu-back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+    }else{
+        self.navigationItem.leftBarButtonItem=nil;
+    }
+}
+- (void)rebackToRootViewAction {
+    NSUserDefaults * pushJudge = [NSUserDefaults standardUserDefaults];
+    [pushJudge setObject:@""forKey:@"push"];
+    [pushJudge synchronize];//记得立即同步
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

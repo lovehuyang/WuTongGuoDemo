@@ -125,16 +125,39 @@
         [btnItem setTag:index];
         [btnItem addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.viewBottom addSubview:btnItem];
-        UIImageView *imgItem = [[UIImageView alloc] initWithFrame:CGRectMake(VIEW_W(btnItem) * 0.2, 12, 26, 26)];
+        UIImageView *imgItem = [[UIImageView alloc] initWithFrame:CGRectMake(VIEW_W(btnItem) * 0.16, 12, 26, 26)];
         [imgItem setImage:[UIImage imageNamed:[NSString stringWithFormat:@"button%d.png",(index + 1)]]];
         [imgItem setTag:index];
         [btnItem addSubview:imgItem];
-        UILabel *lbItem = [[UILabel alloc] initWithFrame:CGRectMake(VIEW_BX(imgItem) + 10, VIEW_Y(imgItem), VIEW_W(btnItem) - VIEW_BX(imgItem) - 15, VIEW_H(imgItem))];
+        UILabel *lbItem = [[UILabel alloc] init];
+//        UILabel *lbItem = [[UILabel alloc] initWithFrame:CGRectMake(VIEW_BX(imgItem) + 10, VIEW_Y(imgItem), VIEW_W(btnItem) - VIEW_BX(imgItem) - 15, VIEW_H(imgItem))];
         [lbItem setText:[arrText objectAtIndex:index]];
         [lbItem setFont:FONT(14)];
         [lbItem setTextColor:TEXTGRAYCOLOR];
         [lbItem setTag:index];
         [btnItem addSubview:lbItem];
+        lbItem.sd_layout
+        .leftSpaceToView(imgItem, 5)
+        .topSpaceToView(btnItem, 0)
+        .bottomSpaceToView(btnItem, 0);
+        [lbItem setSingleLineAutoResizeWithMaxWidth:100];
+        if(index == 3){
+            UILabel *tipLab = [UILabel new];
+            [btnItem addSubview:tipLab];
+            tipLab.sd_layout
+            .centerYEqualToView(lbItem)
+            .leftSpaceToView(lbItem, 2)
+            .heightIs(16)
+            .widthIs(45);
+            tipLab.sd_cornerRadius = @(8);
+            tipLab.backgroundColor = [UIColor colorWithHex:0xF30000];
+            tipLab.font = [UIFont systemFontOfSize:9];
+            tipLab.textColor = [UIColor whiteColor];
+            tipLab.textAlignment = NSTextAlignmentCenter;
+            tipLab.text = @"网申神器";
+            tipLab.tag = 300;
+            
+        }
     }
     UIView *viewTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     [viewTop setBackgroundColor:SEPARATECOLOR];
@@ -258,6 +281,13 @@
 
 #pragma mark - 网申记录、企业通知、我的关注、求职加速
 - (void)buttonClick:(UIButton *)sender {
+    
+    if (sender.tag == 3) { //求职加速
+        ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
+        [self.navigationController pushViewController:apvc animated:YES];
+        return;
+    }
+    
     if (![CommonFunc checkLogin] && sender.tag <= 3) {
         UIViewController *loginCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"loginView"];
         [self.navigationController pushViewController:loginCtrl animated:YES];
@@ -278,16 +308,7 @@
         FocusViewController *focusCtrl = [[FocusViewController alloc] init];
         [self.navigationController pushViewController:focusCtrl animated:YES];
     }
-    else if (sender.tag == 3) { //求职加速
-        ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
-        [self.navigationController pushViewController:apvc animated:YES];
-        
-        
-//        [self clickLog:@"14"];
-//        UIViewController *industryCtrl = [self.storyboard instantiateViewControllerWithIdentifier:@"majorView"];
-//        [self.navigationController pushViewController:industryCtrl animated:YES];
-    }
-    else if (sender.tag == 4) { //猜你喜欢
+    else  if (sender.tag == 4) { //猜你喜欢
         
         ApplySpeedUpIntroduceController *apvc = [ApplySpeedUpIntroduceController new];
         [self.navigationController pushViewController:apvc animated:YES];
@@ -367,7 +388,9 @@
                         for (UIView *buttonChildView in childView.subviews) {
                             if ([buttonChildView isKindOfClass:[UILabel class]] && childView.tag == 4) {
 //                                [(UILabel *)buttonChildView setText:@"猜你喜欢"];
-                                [(UILabel *)buttonChildView setText:@"求职加速"];
+                                if(buttonChildView.tag !=300){
+                                     [(UILabel *)buttonChildView setText:@"求职加速"];
+                                }
                             }
                             if ([buttonChildView isKindOfClass:[UIImageView class]]) {
                                 [(UIImageView *)buttonChildView setImage:nil];
@@ -385,7 +408,7 @@
                 for (UIView *childView in self.viewBottom.subviews) {
                     if ([childView isKindOfClass:[UIButton class]] && childView.tag == i) {
                         CustomLabel *lbNoView = [[CustomLabel alloc] initWithFrame:CGRectMake(VIEW_W(childView) - 50, 22, 6, 6) content:@"" size:12 color:[UIColor whiteColor]];
-                        [lbNoView setBackgroundColor:[UIColor redColor]];
+                        [lbNoView setBackgroundColor:[UIColor whiteColor]];
                         [lbNoView.layer setMasksToBounds:YES];
                         [lbNoView.layer setCornerRadius:3];
                         [childView addSubview:lbNoView];
@@ -695,7 +718,7 @@
         [self.viewNewsAnalysis addSubview:lbReportTitle];
         UIImageView *imgReport = [[UIImageView alloc] initWithFrame:CGRectMake(VIEW_W(self.viewNewsAnalysis) - 110, VIEW_Y(lbReportTitle), 100, 66.3)];
         [imgReport setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://down.51rc.com/imagefolder/wutongguo/NewsAnalysis/fileMobileImg/%@", [reportData objectForKey:@"MobileImage"]]]]]];
-        [imgReport setBackgroundColor:[UIColor redColor]];
+        [imgReport setBackgroundColor:[UIColor whiteColor]];
         [self.viewNewsAnalysis addSubview:imgReport];
         CustomLabel *lbReportDate = [[CustomLabel alloc] initWithFixedHeight:CGRectMake(VIEW_X(lbReportTitle), VIEW_BY(lbReportTitle) + 5, VIEW_W(lbReportTitle), 20) content:[NSString stringWithFormat:@"数据报告 %@", [CommonFunc stringFromDateString:[reportData objectForKey:@"RefReshDate"] formatType:@"M-d"]] size:12 color:TEXTGRAYCOLOR];
         [self.viewNewsAnalysis addSubview:lbReportDate];

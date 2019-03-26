@@ -23,6 +23,11 @@
 #import "WXApiManager.h"
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WTGTabbarController.h"
+#import "CompanyViewController.h"
+#import "ApplyLogViewController.h"
+#import "CpJobDetailViewController.h"
+#import "FocusViewController.h"
 
 @interface AppDelegate ()
 
@@ -223,15 +228,69 @@
     NSString *content = [aps valueForKey:@"alert"]; //推送显示的内容
     NSInteger badge = [[aps valueForKey:@"badge"] integerValue]; //badge数量
     NSString *sound = [aps valueForKey:@"sound"]; //播放的声音
-    // 取得自定义字段内容
-    NSString *customizeField1 = [userInfo valueForKey:@"customizeField1"]; //自定义参数，key是自己定义的
-    NSLog(@"content =[%@], badge=[%ld], sound=[%@], customize field  =[%@]",content,(long)badge,sound,customizeField1);
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提醒" message:content delegate:self cancelButtonTitle:@"知道啦" otherButtonTitles:nil, nil];
-    [alertView show];
+    [self presentController:userInfo];
+    
     // IOS 7 Support Required
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
     //[USER_DEFAULT setObject:userInfo forKey:@"pushUserInfo"];
+}
+
+/*
+ 1,3,4,20,23 招聘简章页面 招聘简章id
+ 2 企业宣讲会列表页面  企业id
+ 5,6 我的关注职位页面
+ 7 高校页面招聘会列表 高校id
+ 8,21 高校页面宣讲会列表 高校id
+ 9,10 我的关注宣讲会页面
+ 11,12 我的关注招聘会页面
+ 22 宣讲会查询列表 地区id
+ 51 网申记录页面
+ 52 职位详情页面 职位id
+ */
+- (void)presentController:(NSDictionary *)extrasDict{
+    
+    NSString *DetailID = [extrasDict objectForKey:@"DetailID"];
+    NSString *PushType = [extrasDict objectForKey:@"PushType"];
+    
+    if([self.window.rootViewController isKindOfClass:[WTGTabbarController class]]){
+        
+        NSUserDefaults*pushJudge = [NSUserDefaults standardUserDefaults];
+        [pushJudge setObject:@"push"forKey:@"push"];
+        [pushJudge synchronize];
+        
+        if ([PushType isEqualToString:@"52"]) {// 职位详情
+            //589B76B751
+            CpJobDetailViewController *targetVc = [CpJobDetailViewController new];
+            targetVc.secondId = DetailID;
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:targetVc];
+            [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        }else if ([PushType isEqualToString:@"51"]){// 网申记录页面
+            ApplyLogViewController *targetVc = [ApplyLogViewController new];
+            UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:targetVc];
+            [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+        }else if ([PushType isEqualToString:@"22"]){// 宣讲会列表
+            
+            UIViewController *targetVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"campusListView"];
+             [self.window.rootViewController presentViewController:targetVc animated:YES completion:nil];
+            
+        }else if([PushType isEqualToString:@"11"] || [PushType isEqualToString:@"12"]){// 11,12 我的关注招聘会页面
+            FocusViewController *focusCtrl = [[FocusViewController alloc] init];
+            focusCtrl.navTabBarIndex = 4;
+            [self.window.rootViewController presentViewController:focusCtrl animated:YES completion:nil];
+            
+        }else if([PushType isEqualToString:@"11"] || [PushType isEqualToString:@"12"]){// 9,10 我的关注宣讲会页面
+            FocusViewController *focusCtrl = [[FocusViewController alloc] init];
+            focusCtrl.navTabBarIndex = 3;
+            [self.window.rootViewController presentViewController:focusCtrl animated:YES completion:nil];
+            
+        }else if([PushType isEqualToString:@"5"] || [PushType isEqualToString:@"6"]){// 5,6 我的关注职位页面
+            FocusViewController *focusCtrl = [[FocusViewController alloc] init];
+            focusCtrl.navTabBarIndex = 1;
+            [self.window.rootViewController presentViewController:focusCtrl animated:YES completion:nil];
+            
+        }
+    }
 }
 
 #pragma mark - Core Data stack

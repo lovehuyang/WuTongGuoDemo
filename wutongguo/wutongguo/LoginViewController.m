@@ -164,7 +164,8 @@
             [self.navigationController popToRootViewControllerAnimated:true];
         }
         else {
-            [self.navigationController popToRootViewControllerAnimated:true];
+            [self.navigationController popViewControllerAnimated:YES];
+//            [self.navigationController popToRootViewControllerAnimated:true];
 //            [self.navigationController popToViewController:prevCtrl animated:true];
         }
     }

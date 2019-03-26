@@ -9,6 +9,7 @@
 #import "ApplySpeedUpIntroduceController.h"
 #import "ApplySpeedUpTipLab.h"
 #import "IntelligentApplyController.h"
+#import "CommonFunc.h"
 
 @interface ApplySpeedUpIntroduceController ()
 @property (nonatomic , strong) UIScrollView *scrollView;
@@ -119,9 +120,9 @@
         ApplySpeedUpTipLab *lab = [ApplySpeedUpTipLab new];
         [self.bgView1 addSubview:lab];
         lab.sd_layout
-        .leftSpaceToView(self.bgView1,85 * i + 20)
+        .leftSpaceToView(self.bgView1,94 * i + 20)
         .heightIs(25)
-        .widthIs(80)
+        .widthIs(82)
         .topSpaceToView(titleLab, 15);
         lab.text = labArr[i];
         lab.sd_cornerRadius = @(12.5);
@@ -135,7 +136,7 @@
     .topSpaceToView(titleLab, 60)
     .leftSpaceToView(self.bgView1, 120)
     .autoHeightRatio(0);
-    introductionLab.text = @"您意向的企业发布校招信息后，网申小助手立即为您投递申请表。当您的同学在悔恨错过了网申时间时，您已经在赶往笔试的途中。同样的毕业季，不同的求职经历。";
+    introductionLab.text = @"您意向的企业发布校招信息后，网站立即为您投递申请表。当您的同学在悔恨错过了网申时间时，您已经在赶往笔试的途中。同样的毕业季，不同的求职经历。";
     introductionLab.font = DEFAULTFONT;
     
     UIImageView *imgView = [UIImageView new];
@@ -148,7 +149,7 @@
     imgView.image =[UIImage imageNamed:@"智能网申"];
     imgView.contentMode = UIViewContentModeScaleAspectFit;
     
-    NSArray *tipArr = @[@"·早先申请，提早获得入场券",@"·平均网申10个企业，可以换来1次面试机会",@"·毕业季可以节省出更多的时间准备笔试面试"];
+    NSArray *tipArr = @[@"·早先申请，提早获得入场券",@"·平均网申10个职位，可以换来1次面试机会",@"·毕业季可以节省出更多的时间准备笔试面试"];
     
     for (int i = 0; i < tipArr.count ; i ++) {
         UILabel *lab = [UILabel new];
@@ -214,9 +215,9 @@
         ApplySpeedUpTipLab *lab = [ApplySpeedUpTipLab new];
         [self.bgView2 addSubview:lab];
         lab.sd_layout
-        .leftSpaceToView(self.bgView2, 85 * i + 20)
+        .leftSpaceToView(self.bgView2, 94 * i + 20)
         .heightIs(25)
-        .widthIs(80)
+        .widthIs(82)
         .topSpaceToView(titleLab, 15);
         lab.text = labArr[i];
         lab.sd_cornerRadius = @(12.5);
@@ -274,6 +275,15 @@
 }
 
 - (void)buttonClick:(UIButton *)button{
+    
+    
+    if (![CommonFunc checkLogin]) {
+        
+        UIViewController *loginCtrl = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"loginView"];
+        [self.navigationController pushViewController:loginCtrl animated:YES];
+        return;
+    }
+    
     if (button.tag == 100) {// 
         IntelligentApplyController *itv = [IntelligentApplyController new];
         itv.ordertype = 1;// 1智能网申
@@ -288,5 +298,10 @@
 #pragma mark - 分享
 - (void)shareClick{
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 @end
