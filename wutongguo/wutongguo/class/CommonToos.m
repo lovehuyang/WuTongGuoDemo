@@ -140,6 +140,9 @@
         case -15:
             return @"地区选择错误";
             break;
+        case -19:
+            return @"验证码错误";
+            break;
         default:
             return @"注册失败,未知错误";
             break;

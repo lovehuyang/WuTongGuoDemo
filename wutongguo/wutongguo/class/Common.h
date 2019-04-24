@@ -55,6 +55,7 @@
 + (NSString *)oneminuteMobileCerCodeResult:(NSInteger)result;
 + (NSString *)loginResult:(NSInteger)result;
 + (NSString *)getPaMobileVerifyCodeResult:(NSInteger)result;
++ (NSString *)getCpMobileVerifyCodeResult:(NSInteger)result;
 
 + (NSArray *)getProvince;
 + (NSArray *)getCareerStatus;

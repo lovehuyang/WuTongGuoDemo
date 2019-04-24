@@ -321,7 +321,6 @@
 		99A167241B10328300BA9841 /* coWaiting.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A167221B10328300BA9841 /* coWaiting.png */; };
 		99A71FD52233493A006985D4 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A71FD02233493A006985D4 /* UIView+SDAutoLayout.m */; };
 		99A71FD62233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A71FD32233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m */; };
-		99A97EA81B03554F001ABA84 /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EA71B03554F001ABA84 /* dictionary.db */; };
 		99A97EAB1B042B7A001ABA84 /* CampusListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A97EAA1B042B7A001ABA84 /* CampusListViewController.m */; };
 		99A97EAE1B0448A5001ABA84 /* coFavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EAC1B0448A5001ABA84 /* coFavorite.png */; };
 		99A97EAF1B0448A5001ABA84 /* coUnFavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A97EAD1B0448A5001ABA84 /* coUnFavorite.png */; };
@@ -433,6 +432,7 @@
 		99DA4FD61B242B9B00F7739C /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 992FADA01AFCAC66003C10B8 /* UserCenterViewController.m */; };
 		99DC71221B54A27A00C8A68E /* coDefaultLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DC71211B54A27A00C8A68E /* coDefaultLogo.png */; };
 		99DD0FD72245F4C100639F9F /* ProtocolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99DD0FD52245F4C100639F9F /* ProtocolView.m */; };
+		99E0A2DF2270019E001183E4 /* dictionary.db in Resources */ = {isa = PBXBuildFile; fileRef = 99E0A2DE22700186001183E4 /* dictionary.db */; };
 		99E3CF8C1C4DD07B00B8D771 /* ApplyFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CF8B1C4DD07B00B8D771 /* ApplyFormViewController.m */; };
 		99E3CF8F1C4E0C8400B8D771 /* EmailApplyLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CF8E1C4E0C8300B8D771 /* EmailApplyLogViewController.m */; };
 		99E8530B1B03439B00AE0044 /* coGreenPoint.png in Resources */ = {isa = PBXBuildFile; fileRef = 99E8530A1B03439B00AE0044 /* coGreenPoint.png */; };
@@ -932,7 +932,6 @@
 		99A71FD22233493A006985D4 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		99A71FD32233493A006985D4 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
 		99A71FD42233493A006985D4 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		99A97EA71B03554F001ABA84 /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		99A97EA91B042B7A001ABA84 /* CampusListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusListViewController.h; sourceTree = "<group>"; };
 		99A97EAA1B042B7A001ABA84 /* CampusListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusListViewController.m; sourceTree = "<group>"; };
 		99A97EAC1B0448A5001ABA84 /* coFavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coFavorite.png; sourceTree = "<group>"; };
@@ -1099,6 +1098,7 @@
 		99DC71211B54A27A00C8A68E /* coDefaultLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coDefaultLogo.png; sourceTree = "<group>"; };
 		99DD0FD52245F4C100639F9F /* ProtocolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolView.m; sourceTree = "<group>"; };
 		99DD0FD62245F4C100639F9F /* ProtocolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolView.h; sourceTree = "<group>"; };
+		99E0A2DE22700186001183E4 /* dictionary.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = dictionary.db; sourceTree = "<group>"; };
 		99E3CF8A1C4DD07B00B8D771 /* ApplyFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFormViewController.h; sourceTree = "<group>"; };
 		99E3CF8B1C4DD07B00B8D771 /* ApplyFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFormViewController.m; sourceTree = "<group>"; };
 		99E3CF8D1C4E0C8300B8D771 /* EmailApplyLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailApplyLogViewController.h; sourceTree = "<group>"; };
@@ -1558,7 +1558,7 @@
 		995BB2521AF7613E0047C971 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				99A97EA71B03554F001ABA84 /* dictionary.db */,
+				99E0A2DE22700186001183E4 /* dictionary.db */,
 				995BB2531AF7613E0047C971 /* Info.plist */,
 				995BB2541AF7613E0047C971 /* main.m */,
 				99DA4FCA1B23DB2400F7739C /* PushConfig.plist */,
@@ -2191,8 +2191,8 @@
 		99D7A7E92223CD4A00B330DC /* ChoseSide */ = {
 			isa = PBXGroup;
 			children = (
-				99D7A7EA2223CD4A00B330DC /* Other */,
 				99D7A7EB2223CD4A00B330DC /* Controller */,
+				99D7A7EA2223CD4A00B330DC /* Other */,
 				99D7A7EC2223CD4A00B330DC /* Model */,
 				99D7A7ED2223CD4A00B330DC /* View */,
 			);
@@ -2403,6 +2403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E0A2DF2270019E001183E4 /* dictionary.db in Resources */,
 				999878AF1B5B49B000F62165 /* LaunchScreen.xib in Resources */,
 				998764E22244DCE300B87985 /* index_imagebutton4.png in Resources */,
 				999878AE1B5B49A900F62165 /* Main.storyboard in Resources */,
@@ -2482,7 +2483,6 @@
 				99A167201B102B0D00BA9841 /* coGrayCircle.png in Resources */,
 				993E10901AFA1825006B6F0D /* regChecked.png in Resources */,
 				998175391B1D898B00BDB47A /* coInformArrowLeft.png in Resources */,
-				99A97EA81B03554F001ABA84 /* dictionary.db in Resources */,
 				99BC721D1DDEF93A00A2AEBD /* ico_cpmain_top.png in Resources */,
 				994B82591B4B67DE00628269 /* bottom1_highlight@2x.png in Resources */,
 				992FADA51AFCB7E3003C10B8 /* ucOption.png in Resources */,

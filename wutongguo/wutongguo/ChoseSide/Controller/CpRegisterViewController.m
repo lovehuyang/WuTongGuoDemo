@@ -18,6 +18,7 @@
 #import "CommonMacro.h"
 #import "WKPopView.h"
 #import "ProtocolViewController.h"
+#import "Common.h"
 
 @interface CpRegisterViewController ()<UITableViewDelegate,UITableViewDataSource,WKPopViewDelegate,NetWebServiceRequestDelegate>
 @property (nonatomic , strong) UITableView *tableView;
@@ -57,9 +58,9 @@
 - (NSArray *)dataArr{
     if (!_dataArr) {
         
-        NSArray *titleArr = [NSArray arrayWithObjects:@"企业名称",@"所在城市",@"联系人",@"手机号",@"电子邮箱",@"用户名",@"密码",@"确认密码", nil];
-        NSArray *placeholderArr = [NSArray arrayWithObjects:@"与营业执照名称一致",@"点击选择",@"点击输入",@"点击输入",@"点击输入",@"6-20位字符，字母/数字/横线/下划线/点",@"6-20位字符",@"点击输入", nil];
-        NSArray *valuerArr = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"", nil];
+        NSArray *titleArr = [NSArray arrayWithObjects:@"企业名称",@"所在城市",@"联系人",@"手机号",@"手机验证码",@"电子邮箱",@"用户名",@"密码",@"确认密码", nil];
+        NSArray *placeholderArr = [NSArray arrayWithObjects:@"与营业执照名称一致",@"点击选择",@"点击输入联系人",@"点击输入手机号",@"点击输入验证码",@"点击输入邮箱",@"6-20位字符，字母/数字/横线/下划线/点",@"6-20位字符",@"点击输入", nil];
+        NSArray *valuerArr = [NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"", nil];
         NSMutableArray *tempArr = [NSMutableArray array];
         for (int i = 0; i < titleArr.count; i ++) {
             TemporaryModel *model = [[TemporaryModel alloc]init];
@@ -131,12 +132,19 @@
     __weak typeof(self)weakself = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textFieldChangeBlock = ^(NSString *value, NSString *title) {
-        
         [weakself infoIsFull];
     };
     cell.textFieldBeginEditing = ^(NSString *value, NSString *title) {
         [weakself infoIsFull];
         [weakself ajaxCheckCpExist:title];
+    };
+    // 获取验证码
+    cell.getCodeBlock = ^(NSInteger type) {
+        if (type == 1) {
+            [self.loadingView startAnimating];
+        }else if (type == 0){
+            [self.loadingView stopAnimating];
+        }
     };
     return cell;
 }
@@ -205,6 +213,7 @@
     self.registerBtn.enabled = YES;
     return NO;
 }
+
 #pragma mark - 注册
 - (void)registerBtnClick{
     [self.view endEditing:YES];
@@ -255,9 +264,11 @@
                                 @"Browser":@"ios15",
                                 @"Cookies":[CommonToos getCurrentTime],
                                 @"RegisterMode":@"1",
-                                @"RegisterFrom":@"101"
+                                @"RegisterFrom":@"101",
+                                @"code":[self getDataWithTitle:@"手机验证码"],
+                                @"ip":@""
                                 };
-    self.runningRequest = [NetWebServiceRequest cpServiceRequestUrl:@"Register" params:paramDict tag:3];
+    self.runningRequest = [NetWebServiceRequest cpServiceRequestUrl:@"Register20190423" params:paramDict tag:3];
     [self.runningRequest setDelegate:self];
     [self.runningRequest startAsynchronous];
 }

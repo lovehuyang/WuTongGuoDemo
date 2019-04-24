@@ -127,9 +127,9 @@
     }
     
     
-    [webView evaluateJavaScript:@"$('a:first').remove()" completionHandler:^(id _Nullable id, NSError * _Nullable error) {
-        [[self.view viewWithTag:LOADINGTAG] setHidden:YES];
-    }];
+//    [webView evaluateJavaScript:@"$('a:first').remove()" completionHandler:^(id _Nullable id, NSError * _Nullable error) {
+//        [[self.view viewWithTag:LOADINGTAG] setHidden:YES];
+//    }];
     
     [webView evaluateJavaScript:@"$('header').remove()" completionHandler:^(id _Nullable id, NSError * _Nullable error) {
         [[self.view viewWithTag:LOADINGTAG] setHidden:YES];

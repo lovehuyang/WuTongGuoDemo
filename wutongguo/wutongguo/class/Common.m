@@ -722,6 +722,30 @@
 }
 
 /**
+ 企业用户注册页面获取验证码接口返回结果
+ 
+ @param result 错误码
+ @return 错误信息
+ */
++ (NSString *)getCpMobileVerifyCodeResult:(NSInteger)result{
+    switch (result) {
+        
+        case -1:
+            return @"该ip今天注册的次数过多多";
+            break;
+        case -2:
+            return @"该手机号60天内认证过";
+            break;
+        case -999:
+            return @"该手机号格式不正确";
+            break;
+        default:
+            return @"未知错误";
+            break;
+    }
+}
+
+/**
  读取本地数据库省信息
 
  @return 数组

@@ -17,5 +17,5 @@
 @property (nonatomic , copy) NSString *Email;// 电子邮箱
 @property (nonatomic , copy) NSString *Username;// 用户名
 @property (nonatomic , copy) NSString *Password;// 密码
-
+@property (nonatomic , copy) NSString *code;// 验证码
 @end

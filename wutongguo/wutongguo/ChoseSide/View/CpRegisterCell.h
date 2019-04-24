@@ -17,4 +17,6 @@
 
 @property (nonatomic, copy)void(^textFieldChangeBlock)(NSString *value,NSString *title);
 @property (nonatomic, copy)void(^textFieldBeginEditing)(NSString *value,NSString *title);
+@property (nonatomic, copy)void(^getCodeBlock)(NSInteger type);// type = 1开始  0 结束
+
 @end

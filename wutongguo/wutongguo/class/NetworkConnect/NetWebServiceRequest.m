@@ -241,7 +241,31 @@ NSString* const NetWebServiceRequestErrorDomain = @"NetWebServiceRequestErrorDom
     [request setTag:tag];
     return request;
 }
-
++ (id)cpMobileServiceRequestUrl:(NSString *)method
+                   params:(NSDictionary *)params
+                      tag:(NSInteger)tag {
+    NSString *WebURL = @"http://webservice3819383118.wutongguo.com/mobileService.asmx";
+    NSString *strNameSpace = @"http://www.wutongguo.com/";
+    NSString *soapParam = @"";
+    for (id key in params) {
+        soapParam = [NSString stringWithFormat:@"%@<%@>%@</%@>\n",soapParam,key,[params objectForKey:key],key];
+    }
+    NSString *soapMsg = [NSString stringWithFormat:
+                         @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                         "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                         "<soap:Body>\n"
+                         "<%@ xmlns=\"%@\">\n"
+                         "%@"
+                         "</%@>\n"
+                         "</soap:Body>\n"
+                         "</soap:Envelope>\n", method, strNameSpace, soapParam, method
+                         ];
+    NSLog(@"%@",soapMsg);
+    NSString *soapActionURL = [NSString stringWithFormat:@"%@%@",strNameSpace,method];
+    NetWebServiceRequest *request = [[[self alloc] initWithUrl:WebURL SOAPActionURL:soapActionURL ServiceMethodName:method SoapMessage:soapMsg] autorelease];
+    [request setTag:tag];
+    return request;
+}
 + (id)cvServiceRequestUrl:(NSString *)method
                    params:(NSDictionary *)params
                       tag:(NSInteger)tag {

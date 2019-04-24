@@ -404,7 +404,8 @@
     }
     
     if(indexPath.section == 0){
-        if (indexPath.row == 0) {// 简历管理
+        if (indexPath.row == 0) {// 我的申请表
+            
             CvModifyViewController *cvModifyCtrl = [[CvModifyViewController alloc] init];
             [self.navigationController pushViewController:cvModifyCtrl animated:YES];
         }
